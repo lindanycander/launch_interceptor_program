@@ -1,4 +1,4 @@
-public class Tests {
+public class TestLic {
     public static void main(String[] args) {
         System.out.println("Tests!");
         testLic0();
