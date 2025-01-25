@@ -1,5 +1,5 @@
-import com.group7.Launch_interceptor;
-import com.group7.Launch_interceptor.ParameterRecord;
+import com.group7.LaunchInterceptor;
+import com.group7.LaunchInterceptor.ParameterRecord;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
@@ -15,7 +15,7 @@ public class TestLic {
         ParameterRecord parameters = new ParameterRecord(3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
         String[][] lcm = new String[15][15];
         boolean[] puv = new boolean[15];
-        Launch_interceptor lic = new Launch_interceptor(numpoints,points,parameters,lcm,puv);
+        LaunchInterceptor lic = new LaunchInterceptor(numpoints,points,parameters,lcm,puv);
         assertTrue(lic.lic0());
     }
 
@@ -28,7 +28,7 @@ public class TestLic {
         ParameterRecord parameters = new ParameterRecord(50,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
         String[][] lcm = new String[15][15];
         boolean[] puv = new boolean[15];
-        Launch_interceptor lic = new Launch_interceptor(numpoints,points,parameters,lcm,puv);
+        LaunchInterceptor lic = new LaunchInterceptor(numpoints,points,parameters,lcm,puv);
         assertFalse(lic.lic0());
     }
 }
