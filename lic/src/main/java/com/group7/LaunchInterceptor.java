@@ -1,6 +1,6 @@
 package com.group7;
 
-public class Launch_interceptor {
+public class LaunchInterceptor {
 
     // Define all global variables
     public int NUMPOINTS;
