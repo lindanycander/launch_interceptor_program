@@ -42,7 +42,7 @@ public class LaunchInterceptor {
      * @param lcm Launch criteria matrix.
      * @param puv Preliminary unlocking vector.
      */
-    public Launch_interceptor(int numpoints, double[][] points, ParameterRecord parameters, String[][] lcm, boolean[] puv) {
+    public LaunchInterceptor(int numpoints, double[][] points, ParameterRecord parameters, String[][] lcm, boolean[] puv) {
         this.NUMPOINTS = numpoints;
         this.POINTS = points;
         this.PARAMETERS = parameters;
