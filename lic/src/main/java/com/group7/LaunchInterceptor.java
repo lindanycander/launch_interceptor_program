@@ -69,4 +69,23 @@ public class LaunchInterceptor {
         }
         return state;
     }
+
+    public boolean lic7() {
+        // There exists at least one set of two data points separated by exactly K PTS consecutive intervening points that are a distance greater than the length, LENGTH1, apart. The condition
+        // is not met when NUMPOINTS < 3.
+        // 1 ≤ K PTS ≤ (NUMPOINTS−2)
+        boolean state = false;
+        if (this.NUMPOINTS >= 3 && this.PARAMETERS.K_PTS >= 1 && this.PARAMETERS.K_PTS <= this.NUMPOINTS - 2){
+            for (int i = this.PARAMETERS.K_PTS; i < this.NUMPOINTS; i++){
+                double[] point1 = this.POINTS[i - this.PARAMETERS.K_PTS];
+                double[] point2 = this.POINTS[i];
+                // calculate the euclidian distance between two points
+                double distance = Math.sqrt(Math.pow(point1[0] - point2[0], 2) + Math.pow(point1[1] - point2[1], 2));
+                if (distance > this.PARAMETERS.LENGTH1) {
+                    state = true;
+                }
+            }
+        }
+        return state;
+    }
 }
