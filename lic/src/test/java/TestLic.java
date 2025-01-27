@@ -158,4 +158,40 @@ public class TestLic {
         assertFalse(lic.lic7());
     }
 
+    @Test
+    void testLic9_less_than_PI_true() {
+        System.out.println("Test lic9");
+        int numpoints = 12;
+        double[][] points = { { 0, 5 }, { 0, 0 }, { 5, 0 }, { 0, 5 }, { 0, 0 }, { 5, 0 },{ 0, 5 }, { 0, 0 }, { 5, 0 }, { 0, 5 }, { 0, 0 }, { 5, 0 }};
+        ParameterRecord parameters = new ParameterRecord(0,0,0.2,0,0,0,0,0,0,0,0,4,1,0,0,0,0,0,0);
+        String[][] lcm = new String[15][15];
+        boolean[] puv = new boolean[15];
+        LaunchInterceptor lic = new LaunchInterceptor(numpoints, points, parameters, lcm, puv);
+        assertTrue(lic.lic9());
+    }
+
+    @Test
+    void testLic9_greater_than_PI_true() {
+        System.out.println("Test lic9");
+        int numpoints = 12;
+        double[][] points = { { -1, -1 }, { 0, 0 }, { 1, 0 },{ -1, -1 }, { 0, 0 }, { 1, 0 },{ -1, -1 }, { 0, 0 }, { 1, 0 },{ -1, -1 }, { 0, 0 }, { 1, 0 }};
+        ParameterRecord parameters = new ParameterRecord(0,0,0.2,0,0,0,0,0,0,0,0,4,1,0,0,0,0,0,0);
+        String[][] lcm = new String[15][15];
+        boolean[] puv = new boolean[15];
+        LaunchInterceptor lic = new LaunchInterceptor(numpoints, points, parameters, lcm, puv);
+        assertTrue(lic.lic9());
+    }
+
+    @Test
+    void testLic9_false() {
+        System.out.println("Test lic9");
+        int numpoints = 12;
+        double[][] points = { { 0, 5 }, { 0, 0 }, { 5, 0 }, { 0, 5 }, { 0, 0 }, { 5, 0 },{ 0, 5 }, { 0, 0 }, { 5, 0 }, { 0, 5 }, { 0, 0 }, { 5, 0 }};
+        ParameterRecord parameters = new ParameterRecord(0,0,0.2,0,0,0,0,0,0,0,0,5,1,0,0,0,0,0,0);
+        String[][] lcm = new String[15][15];
+        boolean[] puv = new boolean[15];
+        LaunchInterceptor lic = new LaunchInterceptor(numpoints, points, parameters, lcm, puv);
+        assertFalse(lic.lic9());
+    }
+
 }
