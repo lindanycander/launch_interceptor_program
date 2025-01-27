@@ -1,9 +1,9 @@
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import org.junit.jupiter.api.Test;
-
 import com.group7.LaunchInterceptor;
 import com.group7.LaunchInterceptor.ParameterRecord;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TestLic {
 
@@ -31,6 +31,61 @@ public class TestLic {
         boolean[] puv = new boolean[15];
         LaunchInterceptor lic = new LaunchInterceptor(numpoints, points, parameters, lcm, puv);
         assertFalse(lic.lic0());
+    }
+
+    @Test
+    void testLic1_withinCircle_false() {
+        int numpoints = 3;
+        double[][] points = { { 0, 0 }, { 1, 0 }, { 0.5, Math.sqrt(0.5) } };
+        ParameterRecord parameters = new ParameterRecord(0, 1.0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        String[][] lcm = new String[15][15];
+        boolean[] puv = new boolean[15];
+        LaunchInterceptor lic = new LaunchInterceptor(numpoints, points, parameters, lcm, puv);
+        assertFalse(lic.lic1());
+    }
+
+    @Test
+    void testLic1_outsideCircle_true() {
+        int numpoints = 3;
+        double[][] points = { { 0, 0 }, { 2, 0 }, { 1, Math.sqrt(0.5) } };
+        ParameterRecord parameters = new ParameterRecord(0, 1.0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        String[][] lcm = new String[15][15];
+        boolean[] puv = new boolean[15];
+        LaunchInterceptor lic = new LaunchInterceptor(numpoints, points, parameters, lcm, puv);
+        assertTrue(lic.lic1());
+    }
+
+    @Test
+    void testLic1_lessThanThreePoints_false() {
+        int numpoints = 2;
+        double[][] points = { { 0, 0 }, { 1, 1 } };
+        ParameterRecord parameters = new ParameterRecord(0, 1.0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        String[][] lcm = new String[15][15];
+        boolean[] puv = new boolean[15];
+        LaunchInterceptor lic = new LaunchInterceptor(numpoints, points, parameters, lcm, puv);
+        assertFalse(lic.lic1());
+    }
+
+    @Test
+    void testLic1_onCircle_false() {
+        int numpoints = 3;
+        double[][] points = { { 1, 0 }, { 0, 1 }, { -1, 0 } };
+        ParameterRecord parameters = new ParameterRecord(0, 1.0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        String[][] lcm = new String[15][15];
+        boolean[] puv = new boolean[15];
+        LaunchInterceptor lic = new LaunchInterceptor(numpoints, points, parameters, lcm, puv);
+        assertFalse(lic.lic1());
+    }
+
+    @Test
+    void testLic1_moreThanThreePoints_true() {
+        int numpoints = 4;
+        double[][] points = { { 0, 0 }, { 2, 0 }, { 1, Math.sqrt(3) }, { 0, 2 } };
+        ParameterRecord parameters = new ParameterRecord(0, 1.0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        String[][] lcm = new String[15][15];
+        boolean[] puv = new boolean[15];
+        LaunchInterceptor lic = new LaunchInterceptor(numpoints, points, parameters, lcm, puv);
+        assertTrue(lic.lic1());
     }
 
     @Test
@@ -157,5 +212,4 @@ public class TestLic {
         LaunchInterceptor lic = new LaunchInterceptor(numpoints, points, parameters, lcm, puv);
         assertFalse(lic.lic7());
     }
-
 }

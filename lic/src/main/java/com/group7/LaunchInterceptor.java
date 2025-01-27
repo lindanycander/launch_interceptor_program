@@ -58,6 +58,8 @@ public class LaunchInterceptor {
         // all be contained within or on a circle of radius RADIUS1.
         boolean state = false;
 
+        double epsilon = 1e-9; // a small tolerance value for floating-point comparison
+
         // start on third point, compare with previous two points
         for (int i = 2; i < this.NUMPOINTS; i++) {
             double[] point1 = this.POINTS[i - 2];
@@ -81,7 +83,7 @@ public class LaunchInterceptor {
             double circumradius = (a * b * c) / (4 * area);
 
             // if the circumradius is greater than the radius, the condition is met
-            if (circumradius > this.PARAMETERS.RADIUS1) {
+            if (circumradius > this.PARAMETERS.RADIUS1 + epsilon) {
                 state = true;
                 break;
             }
