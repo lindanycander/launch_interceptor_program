@@ -43,7 +43,7 @@ public class TestLic {
         String[][] lcm = new String[15][15];
         boolean[] puv = new boolean[15];
         LaunchInterceptor lic = new LaunchInterceptor(numpoints,points,parameters,lcm,puv);
-        assertTrue(lic.lic0());
+        assertTrue(lic.lic3());
     }
 
     @Test
@@ -56,6 +56,6 @@ public class TestLic {
         String[][] lcm = new String[15][15];
         boolean[] puv = new boolean[15];
         LaunchInterceptor lic = new LaunchInterceptor(numpoints,points,parameters,lcm,puv);
-        assertFalse(lic.lic0());
+        assertFalse(lic.lic3());
     }
 }
