@@ -21,7 +21,7 @@ public class TestLic {
     }
 
     @Test
-    void testLic0_false() {
+    void testLic_false() {
         // Case 2, we know to be false according to input variables
         System.out.println("Test lic0");
         int numpoints = 3;
