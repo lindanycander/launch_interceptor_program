@@ -70,6 +70,22 @@ public class LaunchInterceptor {
         return state;
     }
 
+    public boolean lic3() {
+        // There exists at least one set of three consecutive data points that are the vertices of a triangle with area greater than AREA1
+        boolean state = false;
+        for (int i = 2; i < this.NUMPOINTS; i++) {
+            double[] point1 = this.POINTS[i-2];
+            double[] point2 = this.POINTS[i-1];
+            double[] point3 = this.POINTS[i];
+            // calculate the area between 3 points in 2d space
+            double area = Math.abs(point1[0] * (point2[1]-point3[1]) + point2[0] * (point3[1]-point1[1]) + point3[0] * (point1[1]-point2[1])) / 2;
+            if (area > this.PARAMETERS.AREA1) {
+                state = true;
+            }
+        }
+        return state;
+    }
+
     public boolean lic7() {
         // There exists at least one set of two data points separated by exactly K PTS consecutive intervening points that are a distance greater than the length, LENGTH1, apart. The condition
         // is not met when NUMPOINTS < 3.
@@ -88,4 +104,5 @@ public class LaunchInterceptor {
         }
         return state;
     }
+    
 }
