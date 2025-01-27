@@ -11,12 +11,12 @@ public class TestLic {
     void testLic0_true() {
         // Case 1, we know to be true according to input variables
         System.out.println("Test lic0");
-        int numpoints = 2;
-        double[][] points = {{1,5},{3,8}};
-        ParameterRecord parameters = new ParameterRecord(3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+        int numpoints = 3;
+        double[][] points = { { 0, 3 }, { 1, 5 }, { 3, 8 } };
+        ParameterRecord parameters = new ParameterRecord(3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         String[][] lcm = new String[15][15];
         boolean[] puv = new boolean[15];
-        LaunchInterceptor lic = new LaunchInterceptor(numpoints,points,parameters,lcm,puv);
+        LaunchInterceptor lic = new LaunchInterceptor(numpoints, points, parameters, lcm, puv);
         assertTrue(lic.lic0());
     }
 
@@ -25,72 +25,72 @@ public class TestLic {
         // Case 2, we know to be false according to input variables
         System.out.println("Test lic0");
         int numpoints = 3;
-        double[][] points = {{-2,3},{1,-5},{-3,8}};
-        ParameterRecord parameters = new ParameterRecord(50,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+        double[][] points = { { -2, 3 }, { 1, -5 }, { -3, 8 } };
+        ParameterRecord parameters = new ParameterRecord(50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         String[][] lcm = new String[15][15];
         boolean[] puv = new boolean[15];
-        LaunchInterceptor lic = new LaunchInterceptor(numpoints,points,parameters,lcm,puv);
+        LaunchInterceptor lic = new LaunchInterceptor(numpoints, points, parameters, lcm, puv);
         assertFalse(lic.lic0());
     }
 
     @Test
-    void testLic7_true() {
-        // We know to be true according to input variables
-        System.out.println("Test lic7");
+    void testLic2_lessThanPi_true() {
+        // Case 1, we know to be true according to input variables
         int numpoints = 3;
-        double[][] points = {{-2,3},{1,-5},{-3,8}};
-        ParameterRecord parameters = new ParameterRecord(1,
-                                                        0,
-                                                        0,
-                                                        0,
-                                                        0,
-                                                        0,
-                                                        0,
-                                                        0,1,0,0,0,0,0,0,0,0,0,0);
+        double[][] points = { { 0, 5 }, { 0, 0 }, { 5, 0 } };
+        ParameterRecord parameters = new ParameterRecord(3, 0, 0.3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         String[][] lcm = new String[15][15];
         boolean[] puv = new boolean[15];
-        LaunchInterceptor lic = new LaunchInterceptor(numpoints,points,parameters,lcm,puv);
-        assertTrue(lic.lic7());
+        LaunchInterceptor lic = new LaunchInterceptor(numpoints, points, parameters, lcm, puv);
+        assertTrue(lic.lic2());
     }
 
     @Test
-    void testLic7_false_to_few_NUMPOINTS() {
-        // We know to be false according to input variables
-        System.out.println("Test lic7");
-        int numpoints = 2;
-        double[][] points = {{1,-5},{-3,8}};
-        ParameterRecord parameters = new ParameterRecord(1,
-                                                        0,
-                                                        0,
-                                                        0,
-                                                        0,
-                                                        0,
-                                                        0,
-                                                        0,1,0,0,0,0,0,0,0,0,0,0);
+    void testLic2_greaterThanPi_true() {
+        // Case 2, we know to be true according to input variables
+        int numpoints = 3;
+        double[][] points = { { -1, -1 }, { 0, 0 }, { 1, 0 } };
+        ParameterRecord parameters = new ParameterRecord(3, 0, 0.2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         String[][] lcm = new String[15][15];
         boolean[] puv = new boolean[15];
-        LaunchInterceptor lic = new LaunchInterceptor(numpoints,points,parameters,lcm,puv);
-        assertFalse(lic.lic7());
+        LaunchInterceptor lic = new LaunchInterceptor(numpoints, points, parameters, lcm, puv);
+        assertTrue(lic.lic2());
     }
 
     @Test
-    void testLic7_false_K_PTS_greater_than_NUMPOINTS() {
-        // We know to be false according to input variables
-        System.out.println("Test lic7");
-        int numpoints = 2;
-        double[][] points = {{1,-5},{-3,8}};
-        ParameterRecord parameters = new ParameterRecord(1,
-                                                        0,
-                                                        0,
-                                                        0,
-                                                        0,
-                                                        0,
-                                                        0,
-                                                        0,5,0,0,0,0,0,0,0,0,0,0);
+    void testLic2_false() {
+        // Case 3, we know to be false according to input variables
+        int numpoints = 3;
+        double[][] points = { { 0, 0.5 }, { 0, 0 }, { 0.5, 0 } };
+        ParameterRecord parameters = new ParameterRecord(3, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         String[][] lcm = new String[15][15];
         boolean[] puv = new boolean[15];
-        LaunchInterceptor lic = new LaunchInterceptor(numpoints,points,parameters,lcm,puv);
-        assertFalse(lic.lic7());
+        LaunchInterceptor lic = new LaunchInterceptor(numpoints, points, parameters, lcm, puv);
+        assertFalse(lic.lic2());
+    }
+
+    @Test
+    void testLic2_skip_false() {
+        // Case 4, we know to be false because one point is equal to the vertex-point
+        int numpoints = 3;
+        double[][] points = { { 0, 0 }, { 0, 0 }, { 1, 0 } };
+        ParameterRecord parameters = new ParameterRecord(3, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        String[][] lcm = new String[15][15];
+        boolean[] puv = new boolean[15];
+        LaunchInterceptor lic = new LaunchInterceptor(numpoints, points, parameters, lcm, puv);
+        assertFalse(lic.lic2());
+    }
+
+    @Test
+    void testLic2_parallel_false() {
+        // Case 5, we know to be false since the vectors are parallel
+        int numpoints = 3;
+        double[][] points = { { 0, 0 }, { 2, 0 }, { 1, 0 } };
+        ParameterRecord parameters = new ParameterRecord(3, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        String[][] lcm = new String[15][15];
+        boolean[] puv = new boolean[15];
+        LaunchInterceptor lic = new LaunchInterceptor(numpoints, points, parameters, lcm, puv);
+        assertFalse(lic.lic2());
     }
 
     @Test
@@ -98,11 +98,11 @@ public class TestLic {
         // Case 1, we know to be true according to input variables
         System.out.println("Test lic3");
         int numpoints = 3;
-        double[][] points = {{-2,3},{1,-5},{-3,8}};
-        ParameterRecord parameters = new ParameterRecord(0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+        double[][] points = { { -2, 3 }, { 1, -5 }, { -3, 8 } };
+        ParameterRecord parameters = new ParameterRecord(0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         String[][] lcm = new String[15][15];
         boolean[] puv = new boolean[15];
-        LaunchInterceptor lic = new LaunchInterceptor(numpoints,points,parameters,lcm,puv);
+        LaunchInterceptor lic = new LaunchInterceptor(numpoints, points, parameters, lcm, puv);
         assertTrue(lic.lic3());
     }
 
@@ -111,11 +111,51 @@ public class TestLic {
         // Case 2, we know to be false according to input variables
         System.out.println("Test lic3");
         int numpoints = 3;
-        double[][] points = {{-2,3},{1,-5},{-3,8}};
-        ParameterRecord parameters = new ParameterRecord(0,0,0,50,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+        double[][] points = { { -2, 3 }, { 1, -5 }, { -3, 8 } };
+        ParameterRecord parameters = new ParameterRecord(0, 0, 0, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         String[][] lcm = new String[15][15];
         boolean[] puv = new boolean[15];
-        LaunchInterceptor lic = new LaunchInterceptor(numpoints,points,parameters,lcm,puv);
+        LaunchInterceptor lic = new LaunchInterceptor(numpoints, points, parameters, lcm, puv);
         assertFalse(lic.lic3());
     }
+
+    @Test
+    void testLic7_true() {
+        // We know to be true according to input variables
+        System.out.println("Test lic7");
+        int numpoints = 3;
+        double[][] points = { { -2, 3 }, { 1, -5 }, { -3, 8 } };
+        ParameterRecord parameters = new ParameterRecord(1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        String[][] lcm = new String[15][15];
+        boolean[] puv = new boolean[15];
+        LaunchInterceptor lic = new LaunchInterceptor(numpoints, points, parameters, lcm, puv);
+        assertTrue(lic.lic7());
+    }
+
+    @Test
+    void testLic7_false_to_few_NUMPOINTS() {
+        // We know to be false according to input variables
+        System.out.println("Test lic7");
+        int numpoints = 2;
+        double[][] points = { { 1, -5 }, { -3, 8 } };
+        ParameterRecord parameters = new ParameterRecord(1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        String[][] lcm = new String[15][15];
+        boolean[] puv = new boolean[15];
+        LaunchInterceptor lic = new LaunchInterceptor(numpoints, points, parameters, lcm, puv);
+        assertFalse(lic.lic7());
+    }
+
+    @Test
+    void testLic7_false_K_PTS_greater_than_NUMPOINTS() {
+        // We know to be false according to input variables
+        System.out.println("Test lic7");
+        int numpoints = 2;
+        double[][] points = { { 1, -5 }, { -3, 8 } };
+        ParameterRecord parameters = new ParameterRecord(1, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        String[][] lcm = new String[15][15];
+        boolean[] puv = new boolean[15];
+        LaunchInterceptor lic = new LaunchInterceptor(numpoints, points, parameters, lcm, puv);
+        assertFalse(lic.lic7());
+    }
+
 }
