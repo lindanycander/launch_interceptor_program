@@ -35,7 +35,6 @@ public class TestLic {
     @Test
     void testLic2_lessThanPi_true() {
         // Case 1, we know to be true according to input variables
-        System.out.println("Test lic1");
         int numpoints = 3;
         double[][] points = { { 0, 5 }, { 0, 0 }, { 5, 0 } };
         ParameterRecord parameters = new ParameterRecord(3, 0, 0.3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
@@ -48,7 +47,6 @@ public class TestLic {
     @Test
     void testLic2_greaterThanPi_true() {
         // Case 3, we know to be true according to input variables
-        System.out.println("Test lic2");
         int numpoints = 3;
         double[][] points = { { -1, -1 }, { 0, 0 }, { 1, 0 } };
         ParameterRecord parameters = new ParameterRecord(3, 0, 0.2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
@@ -61,7 +59,6 @@ public class TestLic {
     @Test
     void testLic2_false() {
         // Case 2, we know to be false according to input variables
-        System.out.println("Test lic2");
         int numpoints = 3;
         double[][] points = { { 0, 0.5 }, { 0, 0 }, { 0.5, 0 } };
         ParameterRecord parameters = new ParameterRecord(3, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
@@ -74,7 +71,6 @@ public class TestLic {
     @Test
     void testLic2_skip_false() {
         // Case 5, we know to be false because one point is equal to the vertex-point
-        System.out.println("Test lic2");
         int numpoints = 3;
         double[][] points = { { 0, 0 }, { 0, 0 }, { 1, 0 } };
         ParameterRecord parameters = new ParameterRecord(3, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
@@ -87,7 +83,6 @@ public class TestLic {
     @Test
     void testLic2_parallel_false() {
         // Case 6, we know to be false since the vectors are parallel
-        System.out.println("Test lic2");
         int numpoints = 3;
         double[][] points = { { 0, 0 }, { 2, 0 }, { 1, 0 } };
         ParameterRecord parameters = new ParameterRecord(3, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
