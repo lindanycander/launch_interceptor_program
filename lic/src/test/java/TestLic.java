@@ -245,8 +245,9 @@ public class TestLic {
     void testLic9_less_than_PI_true() {
         System.out.println("Test lic9");
         int numpoints = 12;
-        double[][] points = { { 0, 5 }, { 0, 0 }, { 5, 0 }, { 0, 5 }, { 0, 0 }, { 5, 0 },{ 0, 5 }, { 0, 0 }, { 5, 0 }, { 0, 5 }, { 0, 0 }, { 5, 0 }};
-        ParameterRecord parameters = new ParameterRecord(0,0,0.2,0,0,0,0,0,0,0,0,4,1,0,0,0,0,0,0);
+        double[][] points = { { 0, 5 }, { 0, 0 }, { 5, 0 }, { 0, 5 }, { 0, 0 }, { 5, 0 }, { 0, 5 }, { 0, 0 }, { 5, 0 },
+                { 0, 5 }, { 0, 0 }, { 5, 0 } };
+        ParameterRecord parameters = new ParameterRecord(0, 0, 0.2, 0, 0, 0, 0, 0, 0, 0, 0, 4, 1, 0, 0, 0, 0, 0, 0);
         String[][] lcm = new String[15][15];
         boolean[] puv = new boolean[15];
         LaunchInterceptor lic = new LaunchInterceptor(numpoints, points, parameters, lcm, puv);
@@ -257,8 +258,9 @@ public class TestLic {
     void testLic9_greater_than_PI_true() {
         System.out.println("Test lic9");
         int numpoints = 12;
-        double[][] points = { { -1, -1 }, { 0, 0 }, { 1, 0 },{ -1, -1 }, { 0, 0 }, { 1, 0 },{ -1, -1 }, { 0, 0 }, { 1, 0 },{ -1, -1 }, { 0, 0 }, { 1, 0 }};
-        ParameterRecord parameters = new ParameterRecord(0,0,0.2,0,0,0,0,0,0,0,0,4,1,0,0,0,0,0,0);
+        double[][] points = { { -1, -1 }, { 0, 0 }, { 1, 0 }, { -1, -1 }, { 0, 0 }, { 1, 0 }, { -1, -1 }, { 0, 0 },
+                { 1, 0 }, { -1, -1 }, { 0, 0 }, { 1, 0 } };
+        ParameterRecord parameters = new ParameterRecord(0, 0, 0.2, 0, 0, 0, 0, 0, 0, 0, 0, 4, 1, 0, 0, 0, 0, 0, 0);
         String[][] lcm = new String[15][15];
         boolean[] puv = new boolean[15];
         LaunchInterceptor lic = new LaunchInterceptor(numpoints, points, parameters, lcm, puv);
@@ -269,12 +271,44 @@ public class TestLic {
     void testLic9_false() {
         System.out.println("Test lic9");
         int numpoints = 12;
-        double[][] points = { { 0, 5 }, { 0, 0 }, { 5, 0 }, { 0, 5 }, { 0, 0 }, { 5, 0 },{ 0, 5 }, { 0, 0 }, { 5, 0 }, { 0, 5 }, { 0, 0 }, { 5, 0 }};
-        ParameterRecord parameters = new ParameterRecord(0,0,0.2,0,0,0,0,0,0,0,0,5,1,0,0,0,0,0,0);
+        double[][] points = { { 0, 5 }, { 0, 0 }, { 5, 0 }, { 0, 5 }, { 0, 0 }, { 5, 0 }, { 0, 5 }, { 0, 0 }, { 5, 0 },
+                { 0, 5 }, { 0, 0 }, { 5, 0 } };
+        ParameterRecord parameters = new ParameterRecord(0, 0, 0.2, 0, 0, 0, 0, 0, 0, 0, 0, 5, 1, 0, 0, 0, 0, 0, 0);
         String[][] lcm = new String[15][15];
         boolean[] puv = new boolean[15];
         LaunchInterceptor lic = new LaunchInterceptor(numpoints, points, parameters, lcm, puv);
         assertFalse(lic.lic9());
     }
 
+    @Test
+    void testLic12_true() {
+        int numpoints = 5;
+        double[][] points = { { 0, 2 }, { 3, 3 }, { -1, 2 }, { 0, 0 }, { -1, -1 } };
+        double length1 = 2;
+        double length2 = 2;
+        double distance = 1;
+        int k_pts = 3;
+        ParameterRecord parameters = new ParameterRecord(length1, 0, 0, 0, 0, 0, 0, distance, k_pts, 0, 0, 0, 0, 0, 0,
+                0, length2, 0, 0);
+        String[][] lcm = new String[15][15];
+        boolean[] puv = new boolean[15];
+        LaunchInterceptor lic = new LaunchInterceptor(numpoints, points, parameters, lcm, puv);
+        assertTrue(lic.lic12());
+    }
+
+    @Test
+    void testLic12_false() {
+        int numpoints = 5;
+        double[][] points = { { 0, 2 }, { 0.5, 0.5 }, { -0.5, 0.5 }, { 1, 1 }, { -1, 0 } };
+        double length1 = 3;
+        double length2 = 4.5;
+        double distance = 1;
+        int k_pts = 3;
+        ParameterRecord parameters = new ParameterRecord(length1, 0, 0, 0, 0, 0, 0, distance, k_pts, 0, 0, 0, 0, 0, 0,
+                0, length2, 0, 0);
+        String[][] lcm = new String[15][15];
+        boolean[] puv = new boolean[15];
+        LaunchInterceptor lic = new LaunchInterceptor(numpoints, points, parameters, lcm, puv);
+        assertFalse(lic.lic12());
+    }
 }
