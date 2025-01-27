@@ -138,6 +138,19 @@ public class LaunchInterceptor {
         return state;
     }
 
+    // returns true if xj-xi<0 for two consecutive points (xi,yi), (xj,yj)
+    public boolean lic5() {
+        boolean state = false;
+        for (int i = 1; i < this.NUMPOINTS; i++) {
+            double[] point1 = this.POINTS[i - 1];
+            double[] point2 = this.POINTS[i];
+            if (point2[0] - point1[0] < 0){
+                state = true;
+            }
+        }
+        return state;
+    }
+
     public boolean lic6() {
         // If there is less than 3 points, return false
         if (this.NUMPOINTS < 3) {
