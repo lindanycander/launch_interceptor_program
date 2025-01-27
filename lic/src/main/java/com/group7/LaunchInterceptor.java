@@ -53,6 +53,42 @@ public class LaunchInterceptor {
         return state;
     }
 
+    public boolean lic1() {
+        // There exists at least one set of three consecutive data points that cannot
+        // all be contained within or on a circle of radius RADIUS1.
+        boolean state = false;
+
+        // start on third point, compare with previous two points
+        for (int i = 2; i < this.NUMPOINTS; i++) {
+            double[] point1 = this.POINTS[i - 2];
+            double[] point2 = this.POINTS[i - 1];
+            double[] point3 = this.POINTS[i];
+
+            // calculate the distance between the three points, forming the three lengths of
+            // a triangle
+            double a = Math.sqrt(Math.pow(point1[0] - point2[0], 2) + Math.pow(point1[1] - point2[1], 2));
+            double b = Math.sqrt(Math.pow(point2[0] - point3[0], 2) + Math.pow(point2[1] - point3[1], 2));
+            double c = Math.sqrt(Math.pow(point3[0] - point1[0], 2) + Math.pow(point3[1] - point1[1], 2));
+
+            // calculate the semiperimeter of the triangle using s = (a+b+c)/2
+            double s = (a + b + c) / 2;
+
+            // calculate the area of the circle using heron's formula
+            double area = Math.sqrt(s * (s - a) * (s - b) * (s - c));
+
+            // now we can calculcate the circumradius of the circle using the formula,
+            // fetched from https://artofproblemsolving.com/wiki/index.php/Circumradius
+            double circumradius = (a * b * c) / (4 * area);
+
+            // if the circumradius is greater than the radius, the condition is met
+            if (circumradius > this.PARAMETERS.RADIUS1) {
+                state = true;
+                break;
+            }
+        }
+        return state;
+    }
+
     public boolean lic3() {
         // There exists at least one set of three consecutive data points that are the
         // vertices of a triangle with area greater than AREA1
