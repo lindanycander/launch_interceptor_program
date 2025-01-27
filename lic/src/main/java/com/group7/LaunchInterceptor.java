@@ -159,4 +159,16 @@ public class LaunchInterceptor {
         return state;
     }
 
+    public boolean lic8() {
+        // There exists at least one set of three data points separated by exactly A_PTS
+        // and B_PTS consecutive intervening points, respectively, that cannot be
+        // contained within or on a circle of radius RADIUS1. The condition is not met
+        // when NUMPOINTS < 5.
+        // 1 ≤ A PTS, 1 ≤ B PTS
+        // A PTS + B PTS ≤ (NUMPOINTS − 3
+        boolean state = false;
+
+        return state;
+    }
+
 }
