@@ -138,6 +138,38 @@ public class LaunchInterceptor {
         return state;
     }
 
+    public boolean lic6() {
+        // If there is less than 3 points, return false
+        if (this.NUMPOINTS < 3) {
+            return false;
+        }
+        for (int i = this.PARAMETERS.N_PTS - 1; i < this.NUMPOINTS; i++) {
+            // Check distance between each point between the first and last point within a
+            // sequence of N_PTS points
+            int firstPointIndex = i - this.PARAMETERS.N_PTS + 1;
+            double[] firstPoint = this.POINTS[firstPointIndex];
+            double[] lastPoint = this.POINTS[i];
+            double[] vector = { lastPoint[0] - firstPoint[0], lastPoint[1] - firstPoint[1] };
+
+            for (int j = 1; j < this.PARAMETERS.N_PTS - 1; j++) {
+                // Calculate distance between the vector and each point between the first
+                // and last point.
+                double[] point = this.POINTS[firstPointIndex + j];
+                double a = vector[0];
+                double b = -vector[1];
+                double c = -firstPoint[0] * vector[1] + firstPoint[1] * vector[0];
+                double distance = Math.abs(a * point[0] + b * point[1] + c)
+                        / Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));
+
+                // If the distance is greater than the distance parameter, return true
+                if (distance > this.PARAMETERS.DIST) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     public boolean lic7() {
         // There exists at least one set of two data points separated by exactly K PTS
         // consecutive intervening points that are a distance greater than the length,
