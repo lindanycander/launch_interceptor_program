@@ -232,20 +232,22 @@ public class LaunchInterceptor {
         }
         boolean distanceGreaterThanLength = false;
         boolean distanceLessThanLength = false;
-        for (int i = this.PARAMETERS.K_PTS - 1; i < this.NUMPOINTS; i++) {
-            double[] point1 = this.POINTS[i - this.PARAMETERS.K_PTS + 1];
+        for (int i = this.PARAMETERS.K_PTS; i < this.NUMPOINTS; i++) {
+            double[] point1 = this.POINTS[i - this.PARAMETERS.K_PTS];
             double[] point2 = this.POINTS[i];
             double distance = Math.sqrt(Math.pow(point1[0] - point2[0], 2) + Math.pow(point1[1] - point2[1], 2));
 
-            if (distance == this.PARAMETERS.LENGTH1 + this.PARAMETERS.DIST) {
+            if (distance > this.PARAMETERS.LENGTH1) {
                 distanceGreaterThanLength = true;
-            } else if (distance == this.PARAMETERS.LENGTH2 - this.PARAMETERS.DIST) {
+            }
+            if (distance < this.PARAMETERS.LENGTH2) {
                 distanceLessThanLength = true;
             }
-        }
-        // If both conditions are met, for some points, return true
-        if (distanceGreaterThanLength && distanceLessThanLength) {
-            return true;
+
+            // If both conditions are met, for some points, return true
+            if (distanceGreaterThanLength && distanceLessThanLength) {
+                return true;
+            }
         }
         return false;
     }
