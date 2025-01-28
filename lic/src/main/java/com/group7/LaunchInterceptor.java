@@ -238,7 +238,7 @@ public class LaunchInterceptor {
                     if (maxLength >= this.PARAMETERS.RADIUS1) {
                         return true; // Points are not within the radius
                     }
-                    break;
+                    continue;
                 }
 
                 // Calculate the circumcircle radius using the formula from
