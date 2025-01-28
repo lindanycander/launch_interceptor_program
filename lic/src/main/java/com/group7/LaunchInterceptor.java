@@ -239,6 +239,27 @@ public class LaunchInterceptor {
         return state;
     }
 
+    // Check if there exists two points with G_PTS number of points inbetween such
+    // that xi>xj and i<j
+    public boolean lic11() {
+        boolean state = false;
+        if (this.NUMPOINTS < 3) {
+            return state;
+        }
+        if (this.PARAMETERS.G_PTS + 2 > this.NUMPOINTS) {
+            return state;
+        } else {
+            for (int i = 0; i < this.NUMPOINTS - this.PARAMETERS.G_PTS - 1; i++) {
+                double[] point1 = this.POINTS[i];
+                double[] point2 = this.POINTS[i + this.PARAMETERS.G_PTS + 1];
+                if (point1[0] > point2[0]) {
+                    state = true;
+                }
+            }
+        }
+        return state;
+    }
+
     public boolean lic12() {
         if (this.NUMPOINTS < 3) {
             return false;
