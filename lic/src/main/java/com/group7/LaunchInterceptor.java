@@ -287,6 +287,52 @@ public class LaunchInterceptor {
         return false;
     }
 
+    public boolean lic13() {
+        boolean notWithinRadius1 = false;
+        boolean withinRadius2 = false;
+        int lastPointIndex = this.PARAMETERS.A_PTS + this.PARAMETERS.B_PTS + 2;
+        for (int i = lastPointIndex; i < this.NUMPOINTS; i++) {
+            double[] point1 = this.POINTS[i - lastPointIndex];
+            double[] point2 = this.POINTS[i - this.PARAMETERS.B_PTS - 1];
+            double[] point3 = this.POINTS[i];
+
+            // Calculate the sides of the triangle
+            double a = Math.sqrt(Math.pow(point2[0] - point1[0], 2) + Math.pow(point2[1] - point1[1], 2));
+            double b = Math.sqrt(Math.pow(point3[0] - point2[0], 2) + Math.pow(point3[1] - point2[1], 2));
+            double c = Math.sqrt(Math.pow(point1[0] - point3[0], 2) + Math.pow(point1[1] - point3[1], 2));
+
+            // Calculate the area of the triangle using the determinant formula
+            double area = Math.abs(point1[0] * (point2[1] - point3[1]) + point2[0] * (point3[1] - point1[1])
+                    + point3[0] * (point1[1] - point2[1])) / 2.0;
+
+            // If the area is zero, the points are collinear, so the circumcircle radius is
+            // infinite
+            if (area == 0) {
+                double maxLength = Math.max(Math.max(a, b), c) / 2;
+                if (maxLength > this.PARAMETERS.RADIUS1 && maxLength <= this.PARAMETERS.RADIUS2) {
+                    return true; // Points can fit in a circle
+                }
+                return false; // Points cannot fit in a circle
+            }
+
+            // Calculate the circumcircle radius using the formula from
+            // https://artofproblemsolving.com/wiki/index.php/Circumradius
+            double circumcircleRadius = (a * b * c) / (4 * area);
+
+            // Check if the circumcircle radius is within the given radius
+            if (circumcircleRadius > this.PARAMETERS.RADIUS1) {
+                notWithinRadius1 = true;
+            }
+            if (circumcircleRadius <= this.PARAMETERS.RADIUS2) {
+                withinRadius2 = true;
+            }
+            if (notWithinRadius1 && withinRadius2) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public boolean lic14() {
         // There must be at least 5 points
         if (this.NUMPOINTS < 5) {
