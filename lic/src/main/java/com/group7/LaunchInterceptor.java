@@ -238,4 +238,31 @@ public class LaunchInterceptor {
 
         return state;
     }
+
+    public boolean lic12() {
+        if (this.NUMPOINTS < 3) {
+            return false;
+        }
+        boolean distanceGreaterThanLength = false;
+        boolean distanceLessThanLength = false;
+        int secondPointIndex = this.PARAMETERS.K_PTS + 1;
+        for (int i = secondPointIndex; i < this.NUMPOINTS; i++) {
+            double[] point1 = this.POINTS[i - secondPointIndex];
+            double[] point2 = this.POINTS[i];
+            double distance = Math.sqrt(Math.pow(point1[0] - point2[0], 2) + Math.pow(point1[1] - point2[1], 2));
+
+            if (distance > this.PARAMETERS.LENGTH1) {
+                distanceGreaterThanLength = true;
+            }
+            if (distance < this.PARAMETERS.LENGTH2) {
+                distanceLessThanLength = true;
+            }
+
+            // If both conditions are met, for some points, return true
+            if (distanceGreaterThanLength && distanceLessThanLength) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
