@@ -46,6 +46,8 @@ mvn package
 - [#41: ci: add initial GitHub actions config for maven](https://github.com/lindanycander/launch_interceptor_program/pull/41)
 - [#50: style: add vscode settings that force auto format](https://github.com/lindanycander/launch_interceptor_program/pull/50)
 - [#56: feat: implement LIC 4 and corresponding tests](https://github.com/lindanycander/launch_interceptor_program/pull/56)
+- [#63: feat: implement LIC 8 and tests for it](https://github.com/lindanycander/launch_interceptor_program/pull/63)
+- [#65: refactor: restructure project to adhere to naming conventions better](https://github.com/lindanycander/launch_interceptor_program/pull/65)
 
 ### Elin Fransholm
 
@@ -61,6 +63,7 @@ mvn package
 - [#42: feat: implement lic6](https://github.com/lindanycander/launch_interceptor_program/pull/42)
 - [#49: feat: Implement lic12](https://github.com/lindanycander/launch_interceptor_program/pull/49)
 - [#52: feat: Implement lic14](https://github.com/lindanycander/launch_interceptor_program/pull/52)
+- [#58: fix: Fix the lic-methods that handles "intervening points" incorrectly](https://github.com/lindanycander/launch_interceptor_program/pull/58)
 - [#59: feat: Implement lic13](https://github.com/lindanycander/launch_interceptor_program/pull/59)
 
 ### Philip Ågren-Jahnsson
@@ -71,6 +74,7 @@ mvn package
 - [#29: feat: Add lic3() method](https://github.com/lindanycander/launch_interceptor_program/pull/29)
 - [#30: feat: Add method lic7()](https://github.com/lindanycander/launch_interceptor_program/pull/30)
 - [#39: feat: Add lic9()](https://github.com/lindanycander/launch_interceptor_program/pull/39)
+- [#60: feat: Add lic10()](https://github.com/lindanycander/launch_interceptor_program/pull/60)
 
 ## Way of Working
 
