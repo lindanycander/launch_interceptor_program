@@ -109,6 +109,64 @@ public class LaunchInterceptor {
         return state;
     }
 
+    public boolean lic4() {
+        // There exists at least one set of Q_PTS consecutive data points that lie in
+        // more than QUADS quadrants. Where there is ambiguity as to which quadrant
+        // contains a given point, priority of decision will be by quadrant number,
+        // i.e., I, II, III, IV. For example, the data point (0,0) is in quadrant I, the
+        // point (-1,0) is in quadrant II, the point (0,-1) is in quadrant III, the
+        // point (0,1) is in quadrant I and the point (1,0) is in quadrant I. (2 ≤ Q_PTS
+        // ≤ NUMPOINTS), (1 ≤ QUADS ≤ 3)
+
+        boolean state = false;
+
+        // check that we have more than 2 points, Q_PTS is at least 2, and QUADS is at
+        // least 1 and at most 3
+        if (this.NUMPOINTS >= 2 && this.PARAMETERS.Q_PTS >= 2 && this.PARAMETERS.QUADS >= 1
+                && this.PARAMETERS.QUADS <= 3) {
+
+            // iterate over all points, start from 0 and go to NUMPOINTS
+            for (int i = 0; i < this.NUMPOINTS; i++) {
+                // create an array to store the count of points in each quadrant
+                int[] quadrants = new int[4];
+
+                // iterate over Q_PTS from this point and check the condition
+                for (int j = 0; j < this.PARAMETERS.Q_PTS; j++) {
+                    // calculate the quadrant of the point
+                    double[] point = this.POINTS[(i + j) % this.NUMPOINTS];
+                    int quadrant = 0;
+                    if (point[0] >= 0 && point[1] >= 0) {
+                        quadrant = 1;
+                    } else if (point[0] < 0 && point[1] >= 0) {
+                        quadrant = 2;
+                    } else if (point[0] < 0 && point[1] < 0) {
+                        quadrant = 3;
+                    } else if (point[0] >= 0 && point[1] < 0) {
+                        quadrant = 4;
+                    }
+
+                    // increment the count of the quadrant
+                    quadrants[quadrant - 1]++;
+                }
+
+                // check if the number of quadrants is greater than QUADS
+                int count = 0;
+                for (int j = 0; j < 4; j++) {
+                    if (quadrants[j] > 0) {
+                        count++;
+                    }
+                }
+
+                if (count > this.PARAMETERS.QUADS) {
+                    state = true;
+                    break;
+                }
+            }
+        }
+
+        return state;
+    }
+
     public boolean lic2() {
         boolean state = false;
         for (int i = 2; i < this.NUMPOINTS; i++) {
@@ -204,14 +262,66 @@ public class LaunchInterceptor {
         return state;
     }
 
+    public boolean lic8() {
+        // There exists at least one set of three data points separated by exactly A_PTS
+        // and B_PTS consecutive intervening points, respectively, that cannot be
+        // contained within or on a circle of radius RADIUS1. The condition is not met
+        // when NUMPOINTS < 5.
+
+        if (this.NUMPOINTS >= 5 && this.PARAMETERS.A_PTS >= 1 && this.PARAMETERS.B_PTS >= 1
+                && this.PARAMETERS.A_PTS + this.PARAMETERS.B_PTS <= this.NUMPOINTS - 3) {
+
+            // start from a point where we have enough previous points to compare to
+            int lastPointIndex = this.PARAMETERS.A_PTS + this.PARAMETERS.B_PTS + 2;
+
+            for (int i = lastPointIndex; i < this.NUMPOINTS; i++) {
+                // define the three points to compare
+                double[] point1 = this.POINTS[i - lastPointIndex];
+                double[] point2 = this.POINTS[i - this.PARAMETERS.B_PTS - 1];
+                double[] point3 = this.POINTS[i];
+
+                // calculate the sides of the triangle
+                double a = Math.sqrt(Math.pow(point2[0] - point1[0], 2) + Math.pow(point2[1] - point1[1], 2));
+                double b = Math.sqrt(Math.pow(point3[0] - point2[0], 2) + Math.pow(point3[1] - point2[1], 2));
+                double c = Math.sqrt(Math.pow(point1[0] - point3[0], 2) + Math.pow(point1[1] - point3[1], 2));
+
+                // Calculate the area of the triangle using the determinant formula
+                double area = Math.abs(point1[0] * (point2[1] - point3[1]) + point2[0] * (point3[1] - point1[1])
+                        + point3[0] * (point1[1] - point2[1])) / 2.0;
+
+                // If the area is zero, the points are collinear, so the circumcircle radius is
+                // infinite
+                if (area == 0) {
+                    double maxLength = Math.max(Math.max(a, b), c) / 2;
+                    if (maxLength >= this.PARAMETERS.RADIUS1) {
+                        return true; // Points are not within the radius
+                    }
+                    continue;
+                }
+
+                // Calculate the circumcircle radius using the formula from
+                // https://artofproblemsolving.com/wiki/index.php/Circumradius
+                double circumcircleRadius = (a * b * c) / (4 * area);
+
+                // Check if the circumcircle radius is within the given radius
+                if (circumcircleRadius > this.PARAMETERS.RADIUS1) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return false;
+    }
+
     public boolean lic9() {
         boolean state = false;
 
         if (this.NUMPOINTS >= 5 && this.PARAMETERS.C_PTS >= 1 && this.PARAMETERS.D_PTS >= 1
                 && this.PARAMETERS.C_PTS + this.PARAMETERS.D_PTS <= this.NUMPOINTS - 3) {
-            for (int i = this.PARAMETERS.C_PTS + this.PARAMETERS.D_PTS; i < this.NUMPOINTS; i++) {
-                double[] point1 = this.POINTS[i - this.PARAMETERS.C_PTS - this.PARAMETERS.D_PTS];
-                double[] point2 = this.POINTS[i - this.PARAMETERS.D_PTS];
+            int lastPointIndex = this.PARAMETERS.C_PTS + this.PARAMETERS.D_PTS + 2;
+            for (int i = lastPointIndex; i < this.NUMPOINTS; i++) {
+                double[] point1 = this.POINTS[i - lastPointIndex];
+                double[] point2 = this.POINTS[i - this.PARAMETERS.D_PTS - 1];
                 double[] point3 = this.POINTS[i];
                 double[] vector1 = { point2[0] - point1[0], point2[1] - point1[1] };
                 double[] vector2 = { point3[0] - point2[0], point3[1] - point2[1] };
@@ -236,6 +346,33 @@ public class LaunchInterceptor {
             }
         }
 
+        return state;
+    }
+
+    public boolean lic10() {
+        // There exists at least one set of three data points separated by exactly E PTS
+        // and F PTS consecutive intervening points, respectively, that are the vertices
+        // of a
+        // triangle with area greater than AREA1. The condition is not met when
+        // NUMPOINTS < 5.
+        boolean state = false;
+        if (this.NUMPOINTS < 5 || this.PARAMETERS.E_PTS < 1 || this.PARAMETERS.F_PTS < 1
+                || this.PARAMETERS.E_PTS + this.PARAMETERS.F_PTS > this.NUMPOINTS - 3) {
+            return false;
+        }
+        int lastPointIndex = this.PARAMETERS.E_PTS + this.PARAMETERS.F_PTS + 2;
+        for (int i = lastPointIndex; i < this.NUMPOINTS; i++) {
+            double[] point1 = this.POINTS[i - lastPointIndex];
+            double[] point2 = this.POINTS[i - this.PARAMETERS.F_PTS - 1];
+            double[] point3 = this.POINTS[i];
+            // calculate the area between 3 points in 2d space
+            double area = Math.abs(point1[0] * (point2[1] - point3[1]) + point2[0] * (point3[1] - point1[1])
+                    + point3[0] * (point1[1] - point2[1])) / 2;
+            if (area > this.PARAMETERS.AREA1) {
+                state = true;
+                return state;
+            }
+        }
         return state;
     }
 
@@ -281,6 +418,56 @@ public class LaunchInterceptor {
 
             // If both conditions are met, for some points, return true
             if (distanceGreaterThanLength && distanceLessThanLength) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean lic13() {
+        if (this.NUMPOINTS < 5) {
+            return false;
+        }
+        boolean notWithinRadius1 = false;
+        boolean withinRadius2 = false;
+        int lastPointIndex = this.PARAMETERS.A_PTS + this.PARAMETERS.B_PTS + 2;
+        for (int i = lastPointIndex; i < this.NUMPOINTS; i++) {
+            double[] point1 = this.POINTS[i - lastPointIndex];
+            double[] point2 = this.POINTS[i - this.PARAMETERS.B_PTS - 1];
+            double[] point3 = this.POINTS[i];
+
+            // Calculate the sides of the triangle
+            double a = Math.sqrt(Math.pow(point2[0] - point1[0], 2) + Math.pow(point2[1] - point1[1], 2));
+            double b = Math.sqrt(Math.pow(point3[0] - point2[0], 2) + Math.pow(point3[1] - point2[1], 2));
+            double c = Math.sqrt(Math.pow(point1[0] - point3[0], 2) + Math.pow(point1[1] - point3[1], 2));
+
+            // Calculate the area of the triangle
+            double area = Math.abs(point1[0] * (point2[1] - point3[1]) + point2[0] * (point3[1] - point1[1])
+                    + point3[0] * (point1[1] - point2[1])) / 2.0;
+
+            // If the area is zero, the points are collinear, so the circumcircle radius is
+            // infinite and therefore, we continue to next iteration. However, if the line
+            // is shorter than the diameter of the circle, the points fit within the circle
+            // and we return true.
+            if (area == 0) {
+                double maxLength = Math.max(Math.max(a, b), c) / 2;
+                if (maxLength > this.PARAMETERS.RADIUS1 && maxLength <= this.PARAMETERS.RADIUS2) {
+                    return true;
+                }
+                continue;
+            }
+
+            // Calculate the circumcircle radius using the formula from
+            // https://artofproblemsolving.com/wiki/index.php/Circumradius
+            double circumcircleRadius = (a * b * c) / (4 * area);
+
+            if (circumcircleRadius > this.PARAMETERS.RADIUS1) {
+                notWithinRadius1 = true;
+            }
+            if (circumcircleRadius <= this.PARAMETERS.RADIUS2) {
+                withinRadius2 = true;
+            }
+            if (notWithinRadius1 && withinRadius2) {
                 return true;
             }
         }
