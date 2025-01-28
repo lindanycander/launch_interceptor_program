@@ -138,6 +138,19 @@ public class LaunchInterceptor {
         return state;
     }
 
+    // returns true if xj-xi<0 for two consecutive points (xi,yi), (xj,yj)
+    public boolean lic5() {
+        boolean state = false;
+        for (int i = 1; i < this.NUMPOINTS; i++) {
+            double[] point1 = this.POINTS[i - 1];
+            double[] point2 = this.POINTS[i];
+            if (point2[0] - point1[0] < 0) {
+                state = true;
+            }
+        }
+        return state;
+    }
+
     public boolean lic6() {
         // If there is less than 3 points, return false
         if (this.NUMPOINTS < 3) {
@@ -226,6 +239,33 @@ public class LaunchInterceptor {
         return state;
     }
 
+    public boolean lic12() {
+        if (this.NUMPOINTS < 3) {
+            return false;
+        }
+        boolean distanceGreaterThanLength = false;
+        boolean distanceLessThanLength = false;
+        int secondPointIndex = this.PARAMETERS.K_PTS + 1;
+        for (int i = secondPointIndex; i < this.NUMPOINTS; i++) {
+            double[] point1 = this.POINTS[i - secondPointIndex];
+            double[] point2 = this.POINTS[i];
+            double distance = Math.sqrt(Math.pow(point1[0] - point2[0], 2) + Math.pow(point1[1] - point2[1], 2));
+
+            if (distance > this.PARAMETERS.LENGTH1) {
+                distanceGreaterThanLength = true;
+            }
+            if (distance < this.PARAMETERS.LENGTH2) {
+                distanceLessThanLength = true;
+            }
+
+            // If both conditions are met, for some points, return true
+            if (distanceGreaterThanLength && distanceLessThanLength) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public boolean lic14() {
         // There must be at least 5 points
         if (this.NUMPOINTS < 5) {
@@ -255,4 +295,5 @@ public class LaunchInterceptor {
         }
         return false;
     }
+
 }
