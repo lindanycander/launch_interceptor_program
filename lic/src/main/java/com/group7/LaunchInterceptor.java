@@ -138,6 +138,19 @@ public class LaunchInterceptor {
         return state;
     }
 
+    // returns true if xj-xi<0 for two consecutive points (xi,yi), (xj,yj)
+    public boolean lic5() {
+        boolean state = false;
+        for (int i = 1; i < this.NUMPOINTS; i++) {
+            double[] point1 = this.POINTS[i - 1];
+            double[] point2 = this.POINTS[i];
+            if (point2[0] - point1[0] < 0) {
+                state = true;
+            }
+        }
+        return state;
+    }
+
     public boolean lic6() {
         // If there is less than 3 points, return false
         if (this.NUMPOINTS < 3) {
@@ -194,7 +207,8 @@ public class LaunchInterceptor {
     public boolean lic9() {
         boolean state = false;
 
-        if (this.NUMPOINTS >= 5 && this.PARAMETERS.C_PTS >= 1 && this.PARAMETERS.D_PTS >= 1 && this.PARAMETERS.C_PTS + this.PARAMETERS.D_PTS <= this.NUMPOINTS - 3) {
+        if (this.NUMPOINTS >= 5 && this.PARAMETERS.C_PTS >= 1 && this.PARAMETERS.D_PTS >= 1
+                && this.PARAMETERS.C_PTS + this.PARAMETERS.D_PTS <= this.NUMPOINTS - 3) {
             for (int i = this.PARAMETERS.C_PTS + this.PARAMETERS.D_PTS; i < this.NUMPOINTS; i++) {
                 double[] point1 = this.POINTS[i - this.PARAMETERS.C_PTS - this.PARAMETERS.D_PTS];
                 double[] point2 = this.POINTS[i - this.PARAMETERS.D_PTS];
@@ -204,43 +218,103 @@ public class LaunchInterceptor {
                 double dotProduct = vector1[0] * vector2[0] + vector1[1] * vector2[1];
                 double magnitude1 = Math.sqrt(Math.pow(vector1[0], 2) + Math.pow(vector1[1], 2));
                 double magnitude2 = Math.sqrt(Math.pow(vector2[0], 2) + Math.pow(vector2[1], 2));
-    
+
                 // Skip if either vector has zero magnitude
                 if (magnitude1 == 0 || magnitude2 == 0) {
                     continue;
                 }
                 // Skip if any point coincides the vertex
-                if (point1[0] == point2[0] && point1[1] == point2[1] || point2[0] == point3[0] && point2[1] == point3[1]) {
+                if (point1[0] == point2[0] && point1[1] == point2[1]
+                        || point2[0] == point3[0] && point2[1] == point3[1]) {
                     continue;
                 }
-    
+
                 double angle = Math.acos(dotProduct / (magnitude1 * magnitude2));
                 if (angle < (Math.PI - this.PARAMETERS.EPSILON) || angle > (Math.PI + this.PARAMETERS.EPSILON)) {
                     state = true;
                 }
             }
         }
-        
+
         return state;
     }
 
-    //Check if there exists two points with G_PTS number of points inbetween such that xi>xj and i<j
-    public boolean lic11(){
+    // Check if there exists two points with G_PTS number of points inbetween such
+    // that xi>xj and i<j
+    public boolean lic11() {
         boolean state = false;
         if (this.NUMPOINTS < 3) {
             return state;
-        } 
+        }
         if (this.PARAMETERS.G_PTS + 2 > this.NUMPOINTS) {
             return state;
         } else {
-            for (int i = 0; i < this.NUMPOINTS-this.PARAMETERS.G_PTS-1; i++) {
+            for (int i = 0; i < this.NUMPOINTS - this.PARAMETERS.G_PTS - 1; i++) {
                 double[] point1 = this.POINTS[i];
-                double[] point2 = this.POINTS[i+this.PARAMETERS.G_PTS+1];
-                if (point1[0] > point2[0]){
+                double[] point2 = this.POINTS[i + this.PARAMETERS.G_PTS + 1];
+                if (point1[0] > point2[0]) {
                     state = true;
                 }
             }
         }
         return state;
     }
+
+    public boolean lic12() {
+        if (this.NUMPOINTS < 3) {
+            return false;
+        }
+        boolean distanceGreaterThanLength = false;
+        boolean distanceLessThanLength = false;
+        int secondPointIndex = this.PARAMETERS.K_PTS + 1;
+        for (int i = secondPointIndex; i < this.NUMPOINTS; i++) {
+            double[] point1 = this.POINTS[i - secondPointIndex];
+            double[] point2 = this.POINTS[i];
+            double distance = Math.sqrt(Math.pow(point1[0] - point2[0], 2) + Math.pow(point1[1] - point2[1], 2));
+
+            if (distance > this.PARAMETERS.LENGTH1) {
+                distanceGreaterThanLength = true;
+            }
+            if (distance < this.PARAMETERS.LENGTH2) {
+                distanceLessThanLength = true;
+            }
+
+            // If both conditions are met, for some points, return true
+            if (distanceGreaterThanLength && distanceLessThanLength) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean lic14() {
+        // There must be at least 5 points
+        if (this.NUMPOINTS < 5) {
+            return false;
+        }
+        boolean greaterThanArea1 = false;
+        boolean lessThanArea2 = false;
+        int point3Index = this.PARAMETERS.E_PTS + this.PARAMETERS.F_PTS + 2;
+        for (int i = point3Index; i < this.NUMPOINTS; i++) {
+            double[] point1 = this.POINTS[i - point3Index];
+            double[] point2 = this.POINTS[i - this.PARAMETERS.F_PTS - 1];
+            double[] point3 = this.POINTS[i];
+
+            // Calculate the area between 3 points in 2d space
+            double area = Math.abs(point1[0] * (point2[1] - point3[1]) + point2[0] * (point3[1] - point1[1])
+                    + point3[0] * (point1[1] - point2[1])) / 2;
+            if (area > this.PARAMETERS.AREA1) {
+                greaterThanArea1 = true;
+            }
+            if (area < this.PARAMETERS.AREA2) {
+                lessThanArea2 = true;
+            }
+            // If both conditions are met, return true, otherwise false
+            if (greaterThanArea1 && lessThanArea2) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
