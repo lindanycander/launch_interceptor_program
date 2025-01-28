@@ -383,6 +383,39 @@ public class TestLic {
     }
 
     @Test
+    void testLic10_true() {
+        int numpoints = 6;
+        double[][] points = { { 0, 0 }, { 0, 0 }, { 0, 0 }, { 2, 0 }, { 0, 0 }, { 0, 6 } };
+        ParameterRecord paramters = new ParameterRecord(0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 0, 0, 0, 0);
+        String[][] lcm = new String[15][15];
+        boolean[] puv = new boolean[15];
+        LaunchInterceptor lic = new LaunchInterceptor(numpoints, points, paramters, lcm, puv);
+        assertTrue(lic.lic10());
+    }
+
+    @Test
+    void testLic10_false_too_large_AREA1() {
+        int numpoints = 6;
+        double[][] points = { { 0, 0 }, { 0, 0 }, { 0, 0 }, { 2, 0 }, { 0, 0 }, { 0, 6 } };
+        ParameterRecord paramters = new ParameterRecord(0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 0, 0, 0, 0);
+        String[][] lcm = new String[15][15];
+        boolean[] puv = new boolean[15];
+        LaunchInterceptor lic = new LaunchInterceptor(numpoints, points, paramters, lcm, puv);
+        assertFalse(lic.lic10());
+    }
+
+    @Test
+    void testLic10_false_to_few_numpoints_compared_to_E_F_PTS() {
+        int numpoints = 6;
+        double[][] points = { { 0, 0 }, { 0, 0 }, { 0, 0 }, { 2, 0 }, { 0, 0 }, { 0, 6 } };
+        ParameterRecord paramters = new ParameterRecord(0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0);
+        String[][] lcm = new String[15][15];
+        boolean[] puv = new boolean[15];
+        LaunchInterceptor lic = new LaunchInterceptor(numpoints, points, paramters, lcm, puv);
+        assertFalse(lic.lic10());
+    }
+
+    @Test
     void testLic11_false_input() {
         int numpoints = 4;
         double[][] points = { { 0, 0 }, { -1, 0 }, { -2, 0 }, { -3, 0 } };
