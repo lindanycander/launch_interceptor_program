@@ -288,6 +288,9 @@ public class LaunchInterceptor {
     }
 
     public boolean lic13() {
+        if (this.NUMPOINTS < 5) {
+            return false;
+        }
         boolean notWithinRadius1 = false;
         boolean withinRadius2 = false;
         int lastPointIndex = this.PARAMETERS.A_PTS + this.PARAMETERS.B_PTS + 2;
