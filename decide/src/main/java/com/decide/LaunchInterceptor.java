@@ -504,4 +504,35 @@ public class LaunchInterceptor {
         return false;
     }
 
+    public boolean[] CMV() {
+        boolean[] cmv = { lic0(), lic1(), lic2(), lic3(), lic4(), lic5(), lic6(), lic7(), lic8(), lic9(), lic10(),
+                lic11(), lic12(), lic13(), lic14() };
+        return cmv;
+    }
+
+    public boolean[][] PUM() {
+        boolean[] cmv = this.CMV();
+        boolean[][] PUM = new boolean[15][15];
+        // Sets PUM based on assignment specifications
+        for (int i = 0; i < 15; i++) {
+            for (int j = 0; i < 15; i++) {
+                PUM[i][j] = false;
+                // Checks what LCM entry is set as
+                switch (this.LCM[i][j]) {
+                    case "NOTUSED":
+                        PUM[i][j] = true;
+                    case "ANDD":
+                        if (cmv[i] == true && cmv[j] == true) {
+                            PUM[i][j] = true;
+                        }
+                    case "ORR":
+                        if (cmv[i] == true || cmv[j] == true) {
+                            PUM[i][j] = true;
+                        }
+                }
+            }
+        }
+        return PUM;
+    }
+
 }
