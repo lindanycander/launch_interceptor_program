@@ -232,8 +232,9 @@ public class LaunchInterceptor {
         }
         boolean distanceGreaterThanLength = false;
         boolean distanceLessThanLength = false;
-        for (int i = this.PARAMETERS.K_PTS; i < this.NUMPOINTS; i++) {
-            double[] point1 = this.POINTS[i - this.PARAMETERS.K_PTS];
+        int secondPointIndex = this.PARAMETERS.K_PTS + 1;
+        for (int i = secondPointIndex; i < this.NUMPOINTS; i++) {
+            double[] point1 = this.POINTS[i - secondPointIndex];
             double[] point2 = this.POINTS[i];
             double distance = Math.sqrt(Math.pow(point1[0] - point2[0], 2) + Math.pow(point1[1] - point2[1], 2));
 
