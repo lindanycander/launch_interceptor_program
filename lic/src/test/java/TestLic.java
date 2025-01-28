@@ -6,7 +6,6 @@ import com.group7.LaunchInterceptor;
 import com.group7.LaunchInterceptor.ParameterRecord;
 
 public class TestLic {
-
     @Test
     void testLic0_true() {
         // Case 1, we know to be true according to input variables
@@ -261,6 +260,51 @@ public class TestLic {
         boolean[] puv = new boolean[15];
         LaunchInterceptor lic = new LaunchInterceptor(numpoints, points, parameters, lcm, puv);
         assertFalse(lic.lic7());
+    }
+
+    @Test
+    void testLic8_true() {
+        int numpoints = 5;
+        double[][] points = { { 0, 2 }, { 3, 15 }, { 0, 0 }, { -5, -5 }, { 2, 0 } };
+        double radius1 = 0.5;
+        int a_pts = 1;
+        int b_pts = 1;
+        ParameterRecord parameters = new ParameterRecord(0, radius1, 0, 0, 0, 0, 0, 0, 0, a_pts, b_pts, 0, 0, 0, 0, 0,
+                0, 0, 0);
+        String[][] lcm = new String[15][15];
+        boolean[] puv = new boolean[15];
+        LaunchInterceptor lic = new LaunchInterceptor(numpoints, points, parameters, lcm, puv);
+        assertTrue(lic.lic8());
+    }
+
+    @Test
+    void testLic8_onLine_false() {
+        int numpoints = 5;
+        double[][] points = { { 0, 0 }, { 0, 1 }, { 0, 2 }, { 0, 3 }, { 0, 4 } };
+        double radius1 = 3;
+        int a_pts = 1;
+        int b_pts = 1;
+        ParameterRecord parameters = new ParameterRecord(0, radius1, 0, 0, 0, 0, 0, 0, 0, a_pts, b_pts, 0, 0, 0, 0, 0,
+                0, 0, 0);
+        String[][] lcm = new String[15][15];
+        boolean[] puv = new boolean[15];
+        LaunchInterceptor lic = new LaunchInterceptor(numpoints, points, parameters, lcm, puv);
+        assertFalse(lic.lic8());
+    }
+
+    @Test
+    void testLic8_false() {
+        int numpoints = 6;
+        double[][] points = { { 0, 0 }, { 0, 1 }, { 1, 0 }, { 1, 1 }, { -1, 0 }, { -1, -1 } };
+        double radius1 = 2;
+        int a_pts = 1;
+        int b_pts = 1;
+        ParameterRecord parameters = new ParameterRecord(0, radius1, 0, 0, 0, 0, 0, 0, 0, a_pts, b_pts, 0, 0, 0, 0, 0,
+                0, 0, 0);
+        String[][] lcm = new String[15][15];
+        boolean[] puv = new boolean[15];
+        LaunchInterceptor lic = new LaunchInterceptor(numpoints, points, parameters, lcm, puv);
+        assertFalse(lic.lic8());
     }
 
     @Test

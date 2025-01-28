@@ -204,6 +204,57 @@ public class LaunchInterceptor {
         return state;
     }
 
+    public boolean lic8() {
+        // There exists at least one set of three data points separated by exactly A_PTS
+        // and B_PTS consecutive intervening points, respectively, that cannot be
+        // contained within or on a circle of radius RADIUS1. The condition is not met
+        // when NUMPOINTS < 5.
+
+        if (this.NUMPOINTS >= 5 && this.PARAMETERS.A_PTS >= 1 && this.PARAMETERS.B_PTS >= 1
+                && this.PARAMETERS.A_PTS + this.PARAMETERS.B_PTS <= this.NUMPOINTS - 3) {
+
+            // start from a point where we have enough previous points to compare to
+            int lastPointIndex = this.PARAMETERS.A_PTS + this.PARAMETERS.B_PTS + 2;
+
+            for (int i = lastPointIndex; i < this.NUMPOINTS; i++) {
+                // define the three points to compare
+                double[] point1 = this.POINTS[i - lastPointIndex];
+                double[] point2 = this.POINTS[i - this.PARAMETERS.B_PTS - 1];
+                double[] point3 = this.POINTS[i];
+
+                // calculate the sides of the triangle
+                double a = Math.sqrt(Math.pow(point2[0] - point1[0], 2) + Math.pow(point2[1] - point1[1], 2));
+                double b = Math.sqrt(Math.pow(point3[0] - point2[0], 2) + Math.pow(point3[1] - point2[1], 2));
+                double c = Math.sqrt(Math.pow(point1[0] - point3[0], 2) + Math.pow(point1[1] - point3[1], 2));
+
+                // Calculate the area of the triangle using the determinant formula
+                double area = Math.abs(point1[0] * (point2[1] - point3[1]) + point2[0] * (point3[1] - point1[1])
+                        + point3[0] * (point1[1] - point2[1])) / 2.0;
+
+                // If the area is zero, the points are collinear, so the circumcircle radius is
+                // infinite
+                if (area == 0) {
+                    double maxLength = Math.max(Math.max(a, b), c) / 2;
+                    if (maxLength >= this.PARAMETERS.RADIUS1) {
+                        return true; // Points are not within the radius
+                    }
+                    break;
+                }
+
+                // Calculate the circumcircle radius using the formula from
+                // https://artofproblemsolving.com/wiki/index.php/Circumradius
+                double circumcircleRadius = (a * b * c) / (4 * area);
+
+                // Check if the circumcircle radius is within the given radius
+                if (circumcircleRadius > this.PARAMETERS.RADIUS1) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return false;
+    }
+
     public boolean lic9() {
         boolean state = false;
 
