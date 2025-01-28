@@ -194,7 +194,8 @@ public class LaunchInterceptor {
     public boolean lic9() {
         boolean state = false;
 
-        if (this.NUMPOINTS >= 5 && this.PARAMETERS.C_PTS >= 1 && this.PARAMETERS.D_PTS >= 1 && this.PARAMETERS.C_PTS + this.PARAMETERS.D_PTS <= this.NUMPOINTS - 3) {
+        if (this.NUMPOINTS >= 5 && this.PARAMETERS.C_PTS >= 1 && this.PARAMETERS.D_PTS >= 1
+                && this.PARAMETERS.C_PTS + this.PARAMETERS.D_PTS <= this.NUMPOINTS - 3) {
             for (int i = this.PARAMETERS.C_PTS + this.PARAMETERS.D_PTS; i < this.NUMPOINTS; i++) {
                 double[] point1 = this.POINTS[i - this.PARAMETERS.C_PTS - this.PARAMETERS.D_PTS];
                 double[] point2 = this.POINTS[i - this.PARAMETERS.D_PTS];
@@ -204,23 +205,54 @@ public class LaunchInterceptor {
                 double dotProduct = vector1[0] * vector2[0] + vector1[1] * vector2[1];
                 double magnitude1 = Math.sqrt(Math.pow(vector1[0], 2) + Math.pow(vector1[1], 2));
                 double magnitude2 = Math.sqrt(Math.pow(vector2[0], 2) + Math.pow(vector2[1], 2));
-    
+
                 // Skip if either vector has zero magnitude
                 if (magnitude1 == 0 || magnitude2 == 0) {
                     continue;
                 }
                 // Skip if any point coincides the vertex
-                if (point1[0] == point2[0] && point1[1] == point2[1] || point2[0] == point3[0] && point2[1] == point3[1]) {
+                if (point1[0] == point2[0] && point1[1] == point2[1]
+                        || point2[0] == point3[0] && point2[1] == point3[1]) {
                     continue;
                 }
-    
+
                 double angle = Math.acos(dotProduct / (magnitude1 * magnitude2));
                 if (angle < (Math.PI - this.PARAMETERS.EPSILON) || angle > (Math.PI + this.PARAMETERS.EPSILON)) {
                     state = true;
                 }
             }
         }
-        
+
         return state;
+    }
+
+    public boolean lic14() {
+        // There must be at least 5 points
+        if (this.NUMPOINTS < 5) {
+            return false;
+        }
+        boolean greaterThanArea1 = false;
+        boolean lessThanArea2 = false;
+        int point3Index = this.PARAMETERS.E_PTS + this.PARAMETERS.F_PTS + 2;
+        for (int i = point3Index; i < this.NUMPOINTS; i++) {
+            double[] point1 = this.POINTS[i - point3Index];
+            double[] point2 = this.POINTS[i - this.PARAMETERS.F_PTS - 1];
+            double[] point3 = this.POINTS[i];
+
+            // Calculate the area between 3 points in 2d space
+            double area = Math.abs(point1[0] * (point2[1] - point3[1]) + point2[0] * (point3[1] - point1[1])
+                    + point3[0] * (point1[1] - point2[1])) / 2;
+            if (area > this.PARAMETERS.AREA1) {
+                greaterThanArea1 = true;
+            }
+            if (area < this.PARAMETERS.AREA2) {
+                lessThanArea2 = true;
+            }
+            // If both conditions are met, return true, otherwise false
+            if (greaterThanArea1 && lessThanArea2) {
+                return true;
+            }
+        }
+        return false;
     }
 }
