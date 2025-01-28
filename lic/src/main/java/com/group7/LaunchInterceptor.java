@@ -240,11 +240,11 @@ public class LaunchInterceptor {
     }
 
     public boolean lic10() {
-        // here exists at least one set of three data points separated by exactly E PTS
-        // and F PTS con-
-        // secutive intervening points, respectively, that are the vertices of a
-        // triangle with area greater
-        // than AREA1. The condition is not met when NUMPOINTS < 5.
+        // There exists at least one set of three data points separated by exactly E PTS
+        // and F PTS consecutive intervening points, respectively, that are the vertices
+        // of a
+        // triangle with area greater than AREA1. The condition is not met when
+        // NUMPOINTS < 5.
         boolean state = false;
         if (this.NUMPOINTS < 5 || this.PARAMETERS.E_PTS < 1 || this.PARAMETERS.F_PTS < 1
                 || this.PARAMETERS.E_PTS + this.PARAMETERS.F_PTS > this.NUMPOINTS - 3) {
@@ -260,6 +260,7 @@ public class LaunchInterceptor {
                     + point3[0] * (point1[1] - point2[1])) / 2;
             if (area > this.PARAMETERS.AREA1) {
                 state = true;
+                return state;
             }
         }
         return state;
