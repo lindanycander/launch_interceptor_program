@@ -265,4 +265,35 @@ public class LaunchInterceptor {
         }
         return false;
     }
+
+    public boolean lic14() {
+        // There must be at least 5 points
+        if (this.NUMPOINTS < 5) {
+            return false;
+        }
+        boolean greaterThanArea1 = false;
+        boolean lessThanArea2 = false;
+        int point3Index = this.PARAMETERS.E_PTS + this.PARAMETERS.F_PTS + 2;
+        for (int i = point3Index; i < this.NUMPOINTS; i++) {
+            double[] point1 = this.POINTS[i - point3Index];
+            double[] point2 = this.POINTS[i - this.PARAMETERS.F_PTS - 1];
+            double[] point3 = this.POINTS[i];
+
+            // Calculate the area between 3 points in 2d space
+            double area = Math.abs(point1[0] * (point2[1] - point3[1]) + point2[0] * (point3[1] - point1[1])
+                    + point3[0] * (point1[1] - point2[1])) / 2;
+            if (area > this.PARAMETERS.AREA1) {
+                greaterThanArea1 = true;
+            }
+            if (area < this.PARAMETERS.AREA2) {
+                lessThanArea2 = true;
+            }
+            // If both conditions are met, return true, otherwise false
+            if (greaterThanArea1 && lessThanArea2) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
