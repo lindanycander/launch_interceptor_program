@@ -175,6 +175,42 @@ public class TestLic {
     }
 
     @Test
+    void testLic4_true() {
+        // Case 1, we know to be true according to input variables
+        int numpoints = 3;
+        double[][] points = { { -1, 1 }, { 2, 2 }, { 3, -1 } };
+        ParameterRecord parameters = new ParameterRecord(0, 0, 0, 0, 3, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        String[][] lcm = new String[15][15];
+        boolean[] puv = new boolean[15];
+        LaunchInterceptor lic = new LaunchInterceptor(numpoints, points, parameters, lcm, puv);
+        assertTrue(lic.lic4());
+    }
+
+    @Test
+    void testLic4_false() {
+        // Case 2, we know to be false according to input variables
+        int numpoints = 3;
+        double[][] points = { { 2, 1 }, { -1, 1 }, { 2, 0 } };
+        ParameterRecord parameters = new ParameterRecord(0, 0, 0, 1, 3, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        String[][] lcm = new String[15][15];
+        boolean[] puv = new boolean[15];
+        LaunchInterceptor lic = new LaunchInterceptor(numpoints, points, parameters, lcm, puv);
+        assertFalse(lic.lic4());
+    }
+
+    @Test
+    void testLic4_boundaries() {
+        // Case 2, we know to be false according to input variables
+        int numpoints = 4;
+        double[][] points = { { 1, 0 }, { 0, 1 }, { -1, 0 }, { 0, -1 } };
+        ParameterRecord parameters = new ParameterRecord(0, 0, 0, 1, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        String[][] lcm = new String[15][15];
+        boolean[] puv = new boolean[15];
+        LaunchInterceptor lic = new LaunchInterceptor(numpoints, points, parameters, lcm, puv);
+        assertFalse(lic.lic4());
+    }
+
+    @Test
     void tistLic5_true() {
         int numpoints = 5;
         double[][] points = { { 0, 0 }, { 1, 1 }, { 1.5, 5 }, { 5, -3 }, { 3, 1.2 } };
