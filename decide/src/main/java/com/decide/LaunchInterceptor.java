@@ -1,4 +1,4 @@
-package com.group7;
+package com.decide;
 
 public class LaunchInterceptor {
 

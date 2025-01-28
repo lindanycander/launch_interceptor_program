@@ -2,8 +2,8 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
-import com.group7.LaunchInterceptor;
-import com.group7.LaunchInterceptor.ParameterRecord;
+import com.decide.LaunchInterceptor;
+import com.decide.LaunchInterceptor.ParameterRecord;
 
 public class TestLic {
     @Test
