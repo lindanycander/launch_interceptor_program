@@ -239,6 +239,32 @@ public class LaunchInterceptor {
         return state;
     }
 
+    public boolean lic10() {
+        // here exists at least one set of three data points separated by exactly E PTS
+        // and F PTS con-
+        // secutive intervening points, respectively, that are the vertices of a
+        // triangle with area greater
+        // than AREA1. The condition is not met when NUMPOINTS < 5.
+        boolean state = false;
+        if (this.NUMPOINTS < 5 || this.PARAMETERS.E_PTS < 1 || this.PARAMETERS.F_PTS < 1
+                || this.PARAMETERS.E_PTS + this.PARAMETERS.F_PTS > this.NUMPOINTS - 3) {
+            return false;
+        }
+        int lastPointIndex = this.PARAMETERS.E_PTS + this.PARAMETERS.F_PTS + 2;
+        for (int i = lastPointIndex; i < this.NUMPOINTS; i++) {
+            double[] point1 = this.POINTS[i - lastPointIndex];
+            double[] point2 = this.POINTS[i - this.PARAMETERS.F_PTS - 1];
+            double[] point3 = this.POINTS[i];
+            // calculate the area between 3 points in 2d space
+            double area = Math.abs(point1[0] * (point2[1] - point3[1]) + point2[0] * (point3[1] - point1[1])
+                    + point3[0] * (point1[1] - point2[1])) / 2;
+            if (area > this.PARAMETERS.AREA1) {
+                state = true;
+            }
+        }
+        return state;
+    }
+
     // Check if there exists two points with G_PTS number of points inbetween such
     // that xi>xj and i<j
     public boolean lic11() {
