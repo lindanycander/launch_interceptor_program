@@ -209,9 +209,10 @@ public class LaunchInterceptor {
 
         if (this.NUMPOINTS >= 5 && this.PARAMETERS.C_PTS >= 1 && this.PARAMETERS.D_PTS >= 1
                 && this.PARAMETERS.C_PTS + this.PARAMETERS.D_PTS <= this.NUMPOINTS - 3) {
-            for (int i = this.PARAMETERS.C_PTS + this.PARAMETERS.D_PTS; i < this.NUMPOINTS; i++) {
-                double[] point1 = this.POINTS[i - this.PARAMETERS.C_PTS - this.PARAMETERS.D_PTS];
-                double[] point2 = this.POINTS[i - this.PARAMETERS.D_PTS];
+            int lastPointIndex = this.PARAMETERS.C_PTS + this.PARAMETERS.D_PTS + 2;
+            for (int i = lastPointIndex; i < this.NUMPOINTS; i++) {
+                double[] point1 = this.POINTS[i - lastPointIndex];
+                double[] point2 = this.POINTS[i - this.PARAMETERS.D_PTS - 1];
                 double[] point3 = this.POINTS[i];
                 double[] vector1 = { point2[0] - point1[0], point2[1] - point1[1] };
                 double[] vector2 = { point3[0] - point2[0], point3[1] - point2[1] };
