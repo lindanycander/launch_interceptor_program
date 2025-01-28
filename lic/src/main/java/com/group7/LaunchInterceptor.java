@@ -162,7 +162,6 @@ public class LaunchInterceptor {
                     break;
                 }
             }
-
         }
 
         return state;

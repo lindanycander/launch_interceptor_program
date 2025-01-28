@@ -179,7 +179,7 @@ public class TestLic {
         // Case 1, we know to be true according to input variables
         int numpoints = 3;
         double[][] points = { { -1, 1 }, { 2, 2 }, { 3, -1 } };
-        ParameterRecord parameters = new ParameterRecord(0, 0, 0, 1, 3, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        ParameterRecord parameters = new ParameterRecord(0, 0, 0, 0, 3, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         String[][] lcm = new String[15][15];
         boolean[] puv = new boolean[15];
         LaunchInterceptor lic = new LaunchInterceptor(numpoints, points, parameters, lcm, puv);
