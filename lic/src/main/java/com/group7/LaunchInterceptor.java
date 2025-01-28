@@ -109,6 +109,65 @@ public class LaunchInterceptor {
         return state;
     }
 
+    public boolean lic4() {
+        // There exists at least one set of Q_PTS consecutive data points that lie in
+        // more than QUADS quadrants. Where there is ambiguity as to which quadrant
+        // contains a given point, priority of decision will be by quadrant number,
+        // i.e., I, II, III, IV. For example, the data point (0,0) is in quadrant I, the
+        // point (-1,0) is in quadrant II, the point (0,-1) is in quadrant III, the
+        // point (0,1) is in quadrant I and the point (1,0) is in quadrant I. (2 ≤ Q_PTS
+        // ≤ NUMPOINTS), (1 ≤ QUADS ≤ 3)
+
+        boolean state = false;
+
+        // check that we have more than 2 points, Q_PTS is at least 2, and QUADS is at
+        // least 1 and at most 3
+        if (this.NUMPOINTS >= 2 && this.PARAMETERS.Q_PTS >= 2 && this.PARAMETERS.QUADS >= 1
+                && this.PARAMETERS.QUADS <= 3) {
+
+            // iterate over all points, start from 0 and go to NUMPOINTS
+            for (int i = 0; i < this.NUMPOINTS; i++) {
+                // create an array to store the count of points in each quadrant
+                int[] quadrants = new int[4];
+
+                // iterate over Q_PTS from this point and check the condition
+                for (int j = 0; j < this.PARAMETERS.Q_PTS; j++) {
+                    // calculate the quadrant of the point
+                    double[] point = this.POINTS[(i + j) % this.NUMPOINTS];
+                    int quadrant = 0;
+                    if (point[0] >= 0 && point[1] >= 0) {
+                        quadrant = 1;
+                    } else if (point[0] < 0 && point[1] >= 0) {
+                        quadrant = 2;
+                    } else if (point[0] < 0 && point[1] < 0) {
+                        quadrant = 3;
+                    } else if (point[0] >= 0 && point[1] < 0) {
+                        quadrant = 4;
+                    }
+
+                    // increment the count of the quadrant
+                    quadrants[quadrant - 1]++;
+                }
+
+                // check if the number of quadrants is greater than QUADS
+                int count = 0;
+                for (int j = 0; j < 4; j++) {
+                    if (quadrants[j] > 0) {
+                        count++;
+                    }
+                }
+
+                if (count > this.PARAMETERS.QUADS) {
+                    state = true;
+                    break;
+                }
+            }
+
+        }
+
+        return state;
+    }
+
     public boolean lic2() {
         boolean state = false;
         for (int i = 2; i < this.NUMPOINTS; i++) {
@@ -194,7 +253,8 @@ public class LaunchInterceptor {
     public boolean lic9() {
         boolean state = false;
 
-        if (this.NUMPOINTS >= 5 && this.PARAMETERS.C_PTS >= 1 && this.PARAMETERS.D_PTS >= 1 && this.PARAMETERS.C_PTS + this.PARAMETERS.D_PTS <= this.NUMPOINTS - 3) {
+        if (this.NUMPOINTS >= 5 && this.PARAMETERS.C_PTS >= 1 && this.PARAMETERS.D_PTS >= 1
+                && this.PARAMETERS.C_PTS + this.PARAMETERS.D_PTS <= this.NUMPOINTS - 3) {
             for (int i = this.PARAMETERS.C_PTS + this.PARAMETERS.D_PTS; i < this.NUMPOINTS; i++) {
                 double[] point1 = this.POINTS[i - this.PARAMETERS.C_PTS - this.PARAMETERS.D_PTS];
                 double[] point2 = this.POINTS[i - this.PARAMETERS.D_PTS];
@@ -204,23 +264,24 @@ public class LaunchInterceptor {
                 double dotProduct = vector1[0] * vector2[0] + vector1[1] * vector2[1];
                 double magnitude1 = Math.sqrt(Math.pow(vector1[0], 2) + Math.pow(vector1[1], 2));
                 double magnitude2 = Math.sqrt(Math.pow(vector2[0], 2) + Math.pow(vector2[1], 2));
-    
+
                 // Skip if either vector has zero magnitude
                 if (magnitude1 == 0 || magnitude2 == 0) {
                     continue;
                 }
                 // Skip if any point coincides the vertex
-                if (point1[0] == point2[0] && point1[1] == point2[1] || point2[0] == point3[0] && point2[1] == point3[1]) {
+                if (point1[0] == point2[0] && point1[1] == point2[1]
+                        || point2[0] == point3[0] && point2[1] == point3[1]) {
                     continue;
                 }
-    
+
                 double angle = Math.acos(dotProduct / (magnitude1 * magnitude2));
                 if (angle < (Math.PI - this.PARAMETERS.EPSILON) || angle > (Math.PI + this.PARAMETERS.EPSILON)) {
                     state = true;
                 }
             }
         }
-        
+
         return state;
     }
 }
