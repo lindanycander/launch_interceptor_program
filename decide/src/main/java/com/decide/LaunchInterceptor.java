@@ -112,7 +112,7 @@ public class LaunchInterceptor {
     }
 
     /**
-     * here exists at least one set of three consecutive data points which form an
+     * There exists at least one set of three consecutive data points which form an
      * angle such that: angle < (PI − EPSILON) or angle > (PI + EPSILON) The second
      * of the three consecutive points is always the vertex of the angle. If either
      * the first point or the last point (or both) coincides with the vertex, the
@@ -155,7 +155,7 @@ public class LaunchInterceptor {
     }
 
     /**
-     * here exists at least one set of three consecutive data points that are the
+     * There exists at least one set of three consecutive data points that are the
      * vertices of a triangle with area greater than AREA1.
      * 
      * @return true if the condition is met, false otherwise.
@@ -184,7 +184,7 @@ public class LaunchInterceptor {
     }
 
     /**
-     * here exists at least one set of Q_PTS consecutive data points that lie in
+     * There exists at least one set of Q_PTS consecutive data points that lie in
      * more than QUADS quadrants. Where there is ambiguity as to which quadrant
      * contains a given point, priority of decision will be by quadrant number,
      * i.e., I, II, III, IV. For example, the data point (0,0) is in quadrant I, the
@@ -278,7 +278,7 @@ public class LaunchInterceptor {
     }
 
     /**
-     * here exists at least one set of N_PTS consecutive data points such that at
+     * There exists at least one set of N_PTS consecutive data points such that at
      * least one of the points lies a distance greater than DIST from the line
      * joining the first and last of these N_PTS points. If the first and last
      * points of these N_PTS are identical, then the calculated distance to compare
@@ -327,7 +327,7 @@ public class LaunchInterceptor {
     }
 
     /**
-     * here exists at least one set of two data points separated by exactly K_PTS
+     * There exists at least one set of two data points separated by exactly K_PTS
      * consecutive intervening points that are a distance greater than the length,
      * LENGTH1, apart. The condition is not met when NUMPOINTS < 3.
      * 
@@ -361,7 +361,7 @@ public class LaunchInterceptor {
     }
 
     /**
-     * here exists at least one set of three data points separated by exactly A_PTS
+     * There exists at least one set of three data points separated by exactly A_PTS
      * and B_PTS consecutive intervening points, respectively, that cannot be
      * contained within or on a circle of radius RADIUS1. The condition is not met
      * when NUMPOINTS < 5.
@@ -609,7 +609,8 @@ public class LaunchInterceptor {
     }
 
     /**
-     * here exists at least one set of three data points, separated by exactly A_PTS
+     * There exists at least one set of three data points, separated by exactly
+     * A_PTS
      * and B_PTS consecutive intervening points, respectively, that cannot be
      * contained within or on a circle ofradius RADIUS1. In addition, there exists
      * at least one set of three data points (which can bethe same or different from
@@ -681,7 +682,8 @@ public class LaunchInterceptor {
     }
 
     /**
-     * here exists at least one set of three data points, separated by exactly E_PTS
+     * There exists at least one set of three data points, separated by exactly
+     * E_PTS
      * and F_PTS con-secutive intervening points, respectively, that are the
      * vertices of a triangle with area greaterthan AREA1. In addition, there exist
      * three data points (which can be the same or differentfrom the three data
