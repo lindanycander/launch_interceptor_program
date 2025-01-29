@@ -585,19 +585,24 @@ public class LaunchInterceptor {
         for (int i = 0; i < 15; i++) {
             for (int j = 0; j < 15; j++) {
                 PUM[i][j] = false;
-                // Checks what LCM entry is set as
-                switch (this.LCM[i][j]) {
-                    case "NOTUSED":
-                        PUM[i][j] = true;
-                    case "ANDD":
-                        if (cmv[i] == true && cmv[j] == true) {
-                            PUM[i][j] = true;
-                        }
-                    case "ORR":
-                        if (cmv[i] == true || cmv[j] == true) {
-                            PUM[i][j] = true;
-                        }
+                if (!(this.LCM[i][j].equals(this.LCM[j][i]))) {
+                    throw new IllegalArgumentException("LCM matrix is not symmetrical");
                 }
+                // Checks what LCM entry is set as
+                if (LCM[i][j].equals("NOTUSED")) {
+                    PUM[i][j] = true;
+                } else if (LCM[i][j].equals("ANDD")) {
+                    if ((cmv[i] == true) && (cmv[j] == true)) {
+                        PUM[i][j] = true;
+                    }
+                } else if (LCM[i][j].equals("ORR")) {
+                    if ((cmv[i] == true) || (cmv[j] == true)) {
+                        PUM[i][j] = true;
+                    }
+                } else {
+                    throw new IllegalArgumentException("Wrong input in LCM matrix [" + i + ", " + j + "]");
+                }
+
             }
         }
         return PUM;
