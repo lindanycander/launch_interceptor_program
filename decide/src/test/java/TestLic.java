@@ -9,7 +9,6 @@ public class TestLic {
     @Test
     void testLic0_true() {
         // Case 1, we know to be true according to input variables
-        System.out.println("Test lic0");
         int numpoints = 3;
         double[][] points = { { 0, 3 }, { 1, 5 }, { 3, 8 } };
         ParameterRecord parameters = new ParameterRecord(3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
@@ -22,7 +21,6 @@ public class TestLic {
     @Test
     void testLic0_false() {
         // Case 2, we know to be false according to input variables
-        System.out.println("Test lic0");
         int numpoints = 3;
         double[][] points = { { -2, 3 }, { 1, -5 }, { -3, 8 } };
         ParameterRecord parameters = new ParameterRecord(50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
@@ -150,7 +148,6 @@ public class TestLic {
     @Test
     void testLic3_true() {
         // Case 1, we know to be true according to input variables
-        System.out.println("Test lic3");
         int numpoints = 3;
         double[][] points = { { -2, 3 }, { 1, -5 }, { -3, 8 } };
         ParameterRecord parameters = new ParameterRecord(0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
@@ -163,7 +160,6 @@ public class TestLic {
     @Test
     void testLic3_false() {
         // Case 2, we know to be false according to input variables
-        System.out.println("Test lic3");
         int numpoints = 3;
         double[][] points = { { -2, 3 }, { 1, -5 }, { -3, 8 } };
         ParameterRecord parameters = new ParameterRecord(0, 0, 0, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
@@ -262,7 +258,6 @@ public class TestLic {
     @Test
     void testLic7_true() {
         // We know to be true according to input variables
-        System.out.println("Test lic7");
         int numpoints = 3;
         double[][] points = { { -2, 3 }, { 1, -5 }, { -3, 8 } };
         ParameterRecord parameters = new ParameterRecord(1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
@@ -275,7 +270,6 @@ public class TestLic {
     @Test
     void testLic7_false_to_few_NUMPOINTS() {
         // We know to be false according to input variables
-        System.out.println("Test lic7");
         int numpoints = 2;
         double[][] points = { { 1, -5 }, { -3, 8 } };
         ParameterRecord parameters = new ParameterRecord(1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
@@ -288,7 +282,6 @@ public class TestLic {
     @Test
     void testLic7_false_K_PTS_greater_than_NUMPOINTS() {
         // We know to be false according to input variables
-        System.out.println("Test lic7");
         int numpoints = 2;
         double[][] points = { { 1, -5 }, { -3, 8 } };
         ParameterRecord parameters = new ParameterRecord(1, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
@@ -345,7 +338,6 @@ public class TestLic {
 
     @Test
     void testLic9_less_than_PI_true() {
-        System.out.println("Test lic9");
         int numpoints = 12;
         double[][] points = { { 0, 5 }, { 0, 0 }, { 5, 0 }, { 0, 5 }, { 0, 0 }, { 5, 0 }, { 0, 5 }, { 0, 0 }, { 5, 0 },
                 { 0, 5 }, { 0, 0 }, { 5, 0 } };
@@ -358,7 +350,6 @@ public class TestLic {
 
     @Test
     void testLic9_greater_than_PI_true() {
-        System.out.println("Test lic9");
         int numpoints = 12;
         double[][] points = { { -1, -1 }, { 0, 0 }, { 1, 0 }, { -1, -1 }, { 0, 0 }, { 1, 0 }, { -1, -1 }, { 0, 0 },
                 { 1, 0 }, { -1, -1 }, { 0, 0 }, { 1, 0 } };
@@ -371,7 +362,6 @@ public class TestLic {
 
     @Test
     void testLic9_false() {
-        System.out.println("Test lic9");
         int numpoints = 12;
         double[][] points = { { 0, 5 }, { 0, 0 }, { 5, 0 }, { 0, 5 }, { 0, 0 }, { 5, 0 }, { 0, 5 }, { 0, 0 }, { 5, 0 },
                 { 0, 5 }, { 0, 0 }, { 5, 0 } };
