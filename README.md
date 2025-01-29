@@ -88,4 +88,9 @@ Our way of working, according to the [Essence standard](https://www.omg.org/spec
 
 The obstacles for us to get to the next state is for the team members to be more comfortable with the practices so that we apply them natually without thinking about it. We also would have to continually tune our use of our practices and tools.
 
-# Motivation for P+
+## Motivation for P+
+
+We believe that the group has fulfilled the requirements for P+.
+
+- Nearly all commits are linked to an issue that describes the feature / commit.
+- The group has worked well togehter in a proactive and creative way. Each group member is proud of the work that has been done.
