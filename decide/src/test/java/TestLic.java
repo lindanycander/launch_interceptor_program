@@ -303,7 +303,7 @@ public class TestLic {
     }
 
     @Test
-    void tistLic5_true() {
+    void testLic5_true() {
         // Case 1, we know to be true according to input variables
         int numpoints = 5;
         double[][] points = { { 0, 0 }, { 1, 1 }, { 1.5, 5 }, { 5, -3 }, { 3, 1.2 } };
@@ -315,10 +315,22 @@ public class TestLic {
     }
 
     @Test
-    void tistLic5_false() {
+    void testLic5_false() {
         // Case 2, we know to be false according to input variables
         int numpoints = 5;
         double[][] points = { { -5, -3 }, { -3.2, 1 }, { 0.5, 2 }, { 2, 3 }, { 3, 5 } };
+        ParameterRecord parameters = new ParameterRecord(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        String[][] lcm = new String[15][15];
+        boolean[] puv = new boolean[15];
+        LaunchInterceptor lic = new LaunchInterceptor(numpoints, points, parameters, lcm, puv);
+        assertFalse(lic.lic5());
+    }
+
+    @Test
+    void testLic5_tooFewNumpoints_false() {
+        // Case 3, we know to be false since there are too few points
+        int numpoints = 1;
+        double[][] points = { { 0, 0 } };
         ParameterRecord parameters = new ParameterRecord(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         String[][] lcm = new String[15][15];
         boolean[] puv = new boolean[15];
