@@ -544,7 +544,6 @@ public class LaunchInterceptor {
                     "AREA1 and AREA2 must be greater than or equal to 0, E_PTS and F_PTS must be greater than or equal to 1 and the sum of E_PTS and F_PTS must be less than NUMPOINTS - 3");
         }
 
-        // There must be at least 5 points
         if (this.NUMPOINTS < 5) {
             return false;
         }
