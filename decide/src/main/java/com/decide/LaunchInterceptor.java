@@ -515,7 +515,7 @@ public class LaunchInterceptor {
         boolean[][] PUM = new boolean[15][15];
         // Sets PUM based on assignment specifications
         for (int i = 0; i < 15; i++) {
-            for (int j = 0; i < 15; i++) {
+            for (int j = 0; j < 15; j++) {
                 PUM[i][j] = false;
                 // Checks what LCM entry is set as
                 switch (this.LCM[i][j]) {
@@ -533,6 +533,29 @@ public class LaunchInterceptor {
             }
         }
         return PUM;
+    }
+
+    // FUV[i] is true if PUV[i] is false or if all elements in PUM row i are true
+    public boolean[] FUV() {
+        boolean[][] PUM = PUM();
+        boolean[] FUV = new boolean[15];
+        for (int i = 0; i < 15; i++) {
+            FUV[i] = false;
+            if (PUV[i] == false) {
+                FUV[i] = true;
+            }
+            boolean rowTrue = true;
+            for (int j = 0; j < 15; j++) {
+                if (PUM[i][j] == false) {
+                    rowTrue = false;
+                }
+            }
+            if (rowTrue) {
+                FUV[i] = true;
+            }
+        }
+        return FUV;
+
     }
 
 }
