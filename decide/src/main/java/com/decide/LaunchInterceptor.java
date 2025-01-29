@@ -372,10 +372,6 @@ public class LaunchInterceptor {
      *                                  if RADIUS1 is less than 0.
      */
     public boolean lic8() {
-        // There exists at least one set of three data points separated by exactly A_PTS
-        // and B_PTS consecutive intervening points, respectively, that cannot be
-        // contained within or on a circle of radius RADIUS1. The condition is not met
-        // when NUMPOINTS < 5.
         if (this.PARAMETERS.A_PTS < 1 || this.PARAMETERS.B_PTS < 1
                 || this.PARAMETERS.A_PTS + this.PARAMETERS.B_PTS > this.NUMPOINTS - 3 || this.PARAMETERS.RADIUS1 < 0) {
             throw new IllegalArgumentException(
