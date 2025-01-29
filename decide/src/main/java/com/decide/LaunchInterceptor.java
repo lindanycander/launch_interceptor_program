@@ -40,6 +40,9 @@ public class LaunchInterceptor {
     }
 
     public boolean lic0() {
+        if (this.PARAMETERS.LENGTH1 < 0) {
+            throw new IllegalArgumentException("Length1 must be greater than or equal to 0");
+        }
         boolean state = false;
         for (int i = 1; i < this.NUMPOINTS; i++) {
             double[] point1 = this.POINTS[i - 1];
@@ -56,8 +59,11 @@ public class LaunchInterceptor {
     public boolean lic1() {
         // There exists at least one set of three consecutive data points that cannot
         // all be contained within or on a circle of radius RADIUS1.
-        boolean state = false;
+        if (this.PARAMETERS.RADIUS1 < 0) {
+            throw new IllegalArgumentException("Radius1 must be greater than or equal to 0");
+        }
 
+        boolean state = false;
         double epsilon = 1e-9; // a small tolerance value for floating-point comparison
 
         // start on third point, compare with previous two points
@@ -92,6 +98,10 @@ public class LaunchInterceptor {
     }
 
     public boolean lic2() {
+        if (0 > this.PARAMETERS.EPSILON || this.PARAMETERS.EPSILON >= Math.PI) {
+            throw new IllegalArgumentException("Epsilon must be greater than or equal to 0 and smaller than PI");
+        }
+
         boolean state = false;
         for (int i = 2; i < this.NUMPOINTS; i++) {
             double[] point1 = this.POINTS[i - 2];
@@ -123,6 +133,10 @@ public class LaunchInterceptor {
     public boolean lic3() {
         // There exists at least one set of three consecutive data points that are the
         // vertices of a triangle with area greater than AREA1
+        if (this.PARAMETERS.AREA1 < 0) {
+            throw new IllegalArgumentException("Area1 must be greater than or equal to 0");
+        }
+
         boolean state = false;
         for (int i = 2; i < this.NUMPOINTS; i++) {
             double[] point1 = this.POINTS[i - 2];
@@ -146,6 +160,11 @@ public class LaunchInterceptor {
         // point (-1,0) is in quadrant II, the point (0,-1) is in quadrant III, the
         // point (0,1) is in quadrant I and the point (1,0) is in quadrant I. (2 ≤ Q_PTS
         // ≤ NUMPOINTS), (1 ≤ QUADS ≤ 3)
+        if (this.PARAMETERS.Q_PTS < 2 || this.PARAMETERS.Q_PTS > this.NUMPOINTS || this.PARAMETERS.QUADS < 1
+                || this.PARAMETERS.QUADS > 3) {
+            throw new IllegalArgumentException(
+                    "Q_PTS must be greater than or equal to 2 and less than NUMPOINTS, and QUADS must be between 1 and 3");
+        }
 
         boolean state = false;
 
@@ -210,6 +229,11 @@ public class LaunchInterceptor {
     }
 
     public boolean lic6() {
+        if (this.PARAMETERS.N_PTS < 3 || this.PARAMETERS.N_PTS > this.NUMPOINTS || this.PARAMETERS.DIST < 0) {
+            throw new IllegalArgumentException(
+                    "N_PTS must be greater than or equal to 3 and less than or equal to NUMPOINTS, and DIST must be greater than or equal to 0");
+        }
+
         // If there is less than 3 points, return false
         if (this.NUMPOINTS < 3) {
             return false;
@@ -247,6 +271,10 @@ public class LaunchInterceptor {
         // LENGTH1, apart. The condition
         // is not met when NUMPOINTS < 3.
         // 1 ≤ K PTS ≤ (NUMPOINTS−2)
+        if (this.PARAMETERS.K_PTS < 1 || this.PARAMETERS.K_PTS > this.NUMPOINTS - 2) {
+            throw new IllegalArgumentException("K_PTS must be between 1 and NUMPOINTS - 2");
+        }
+
         boolean state = false;
         if (this.NUMPOINTS >= 3 && this.PARAMETERS.K_PTS >= 1 && this.PARAMETERS.K_PTS <= this.NUMPOINTS - 2) {
             for (int i = this.PARAMETERS.K_PTS + 1; i < this.NUMPOINTS; i++) {
@@ -267,6 +295,11 @@ public class LaunchInterceptor {
         // and B_PTS consecutive intervening points, respectively, that cannot be
         // contained within or on a circle of radius RADIUS1. The condition is not met
         // when NUMPOINTS < 5.
+        if (this.PARAMETERS.A_PTS < 1 || this.PARAMETERS.B_PTS < 1
+                || this.PARAMETERS.A_PTS + this.PARAMETERS.B_PTS > this.NUMPOINTS - 3 || this.PARAMETERS.RADIUS1 < 0) {
+            throw new IllegalArgumentException(
+                    "A_PTS and B_PTS must be greater than or equal to 1, the sum of A_PTS and B_PTS must be less than NUMPOINTS - 3 and RADIUS1 must be greater than or equal to 0");
+        }
 
         if (this.NUMPOINTS >= 5 && this.PARAMETERS.A_PTS >= 1 && this.PARAMETERS.B_PTS >= 1
                 && this.PARAMETERS.A_PTS + this.PARAMETERS.B_PTS <= this.NUMPOINTS - 3) {
@@ -314,6 +347,12 @@ public class LaunchInterceptor {
     }
 
     public boolean lic9() {
+        if (this.PARAMETERS.C_PTS < 1 || this.PARAMETERS.D_PTS < 1
+                || this.PARAMETERS.C_PTS + this.PARAMETERS.D_PTS > this.NUMPOINTS - 3 || this.PARAMETERS.EPSILON < 0) {
+            throw new IllegalArgumentException(
+                    "C_PTS and D_PTS must be greater than or equal to 1, the sum of C_PTS and D_PTS must be less than NUMPOINTS - 3 and EPSILON must be greater than or equal to 0");
+        }
+
         boolean state = false;
 
         if (this.NUMPOINTS >= 5 && this.PARAMETERS.C_PTS >= 1 && this.PARAMETERS.D_PTS >= 1
@@ -355,6 +394,12 @@ public class LaunchInterceptor {
         // of a
         // triangle with area greater than AREA1. The condition is not met when
         // NUMPOINTS < 5.
+        if (this.PARAMETERS.E_PTS < 1 || this.PARAMETERS.F_PTS < 1
+                || this.PARAMETERS.E_PTS + this.PARAMETERS.F_PTS > this.NUMPOINTS - 3 || this.PARAMETERS.AREA1 < 0) {
+            throw new IllegalArgumentException(
+                    "E_PTS and F_PTS must be greater than or equal to 1, the sum of E_PTS and F_PTS must be less than NUMPOINTS - 3 and AREA1 must be greater than or equal to 0");
+        }
+
         boolean state = false;
         if (this.NUMPOINTS < 5 || this.PARAMETERS.E_PTS < 1 || this.PARAMETERS.F_PTS < 1
                 || this.PARAMETERS.E_PTS + this.PARAMETERS.F_PTS > this.NUMPOINTS - 3) {
@@ -379,6 +424,11 @@ public class LaunchInterceptor {
     // Check if there exists two points with G_PTS number of points inbetween such
     // that xi>xj and i<j
     public boolean lic11() {
+        if (this.PARAMETERS.G_PTS < 1 || this.PARAMETERS.G_PTS > this.NUMPOINTS - 2) {
+            throw new IllegalArgumentException(
+                    "G_PTS must be greater than or equal to 1 and less than or equal to NUMPOINTS - 2");
+        }
+
         boolean state = false;
         if (this.NUMPOINTS < 3) {
             return state;
@@ -398,6 +448,11 @@ public class LaunchInterceptor {
     }
 
     public boolean lic12() {
+        if (this.PARAMETERS.LENGTH2 < 0 || this.PARAMETERS.LENGTH1 < 0 || this.PARAMETERS.K_PTS > this.NUMPOINTS - 2) {
+            throw new IllegalArgumentException(
+                    "LENGTH1 and LENGTH2 must be greater than or equal to 0 and K_PTS must be less than NUMPOINTS - 2");
+        }
+
         if (this.NUMPOINTS < 3) {
             return false;
         }
@@ -425,6 +480,13 @@ public class LaunchInterceptor {
     }
 
     public boolean lic13() {
+        if (this.PARAMETERS.RADIUS1 < 0 || this.PARAMETERS.RADIUS2 < 0 || this.PARAMETERS.A_PTS < 1
+                || this.PARAMETERS.B_PTS < 1
+                || this.PARAMETERS.A_PTS + this.PARAMETERS.B_PTS > this.NUMPOINTS - 3) {
+            throw new IllegalArgumentException(
+                    "RADIUS1 and RADIUS2 must be greater than or equal to 0, A_PTS and B_PTS must be greater than or equal to 1 and the sum of A_PTS and B_PTS must be less than NUMPOINTS - 3");
+        }
+
         if (this.NUMPOINTS < 5) {
             return false;
         }
@@ -475,6 +537,13 @@ public class LaunchInterceptor {
     }
 
     public boolean lic14() {
+        if (this.PARAMETERS.AREA1 < 0 || this.PARAMETERS.AREA2 < 0 || this.PARAMETERS.E_PTS < 1
+                || this.PARAMETERS.F_PTS < 1
+                || this.PARAMETERS.E_PTS + this.PARAMETERS.F_PTS > this.NUMPOINTS - 3) {
+            throw new IllegalArgumentException(
+                    "AREA1 and AREA2 must be greater than or equal to 0, E_PTS and F_PTS must be greater than or equal to 1 and the sum of E_PTS and F_PTS must be less than NUMPOINTS - 3");
+        }
+
         // There must be at least 5 points
         if (this.NUMPOINTS < 5) {
             return false;
