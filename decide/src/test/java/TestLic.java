@@ -300,6 +300,21 @@ public class TestLic {
     }
 
     @Test
+    void testLic7_false() {
+        // Case 4, we know to be false according to input variables
+        int numpoints = 3;
+        double[][] points = { { 1, 5 }, { 0, 0 }, { 1, 1 } };
+        int k_pts = 1;
+        int length1 = 5;
+        ParameterRecord parameters = new ParameterRecord(length1, 0, 0, 0, 0, 0, 0, 0, k_pts, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                0);
+        String[][] lcm = new String[15][15];
+        boolean[] puv = new boolean[15];
+        LaunchInterceptor lic = new LaunchInterceptor(numpoints, points, parameters, lcm, puv);
+        assertFalse(lic.lic7());
+    }
+
+    @Test
     void testLic8_true() {
         // Case 1, we know to be true according to input variables
         int numpoints = 5;
