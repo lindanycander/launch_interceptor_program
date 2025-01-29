@@ -37,6 +37,12 @@ mvn package
 
 `mvn package` will compile and run the tests before packaging the project.
 
+Once compiled, there will be a `.jar` file in the `target` folder. You can run the program using:
+
+```bash
+java -jar target/decide-1.0-SNAPSHOT.jar
+```
+
 ## Statement of Contributions
 
 ### Vilhelm Prytz
@@ -77,5 +83,9 @@ mvn package
 - [#60: feat: Add lic10()](https://github.com/lindanycander/launch_interceptor_program/pull/60)
 
 ## Way of Working
+
+Our way of working, according to the [Essence standard](https://www.omg.org/spec/Essence/1.2/PDF), is in the "in place" state. The tools we use are Java, Maven, Git and GitHub issues. The practices we use are for example the standardized way of writing commit messages ([see this](https://www.conventionalcommits.org/en/v1.0.0/#specification)), and the use of pull requests for code reviews. All team members use these practices and tools and have access to them to perform their work. New changes to the way we work have been discussed and agreed upon by the team, meaning that the whole team is involved in the adaption and inspection of our way-of-working.
+
+The obstacles for us to get to the next state is for the team members to be more comfortable with the practices so that we apply them natually without thinking about it. We also would have to continually tune our use of our practices and tools.
 
 # Motivation for P+
