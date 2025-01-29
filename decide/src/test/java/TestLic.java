@@ -1,3 +1,5 @@
+import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
@@ -546,5 +548,218 @@ public class TestLic {
         boolean[] puv = new boolean[15];
         LaunchInterceptor lic = new LaunchInterceptor(numpoints, points, parameters, lcm, puv);
         assertFalse(lic.lic14());
+    }
+
+    @Test
+    void testCMV_correct() {
+        int numpoints = 10;
+        double[][] points = { { 0, 0 }, { 0.5, 0.5 }, { 2, 0 }, { -0.5, 0 }, { 0, 2 }, { 0, 0 }, { 0.5, 0.5 }, { 2, 0 },
+                { -0.5, 0 }, { 0, 2 } };
+        int e_pts = 1;
+        int f_pts = 1;
+        double area1 = 0.1;
+        double area2 = 5;
+        ParameterRecord parameters = new ParameterRecord(1, 1, 1, area1, 1, 1, 1, 1, 1, 1, 1, 1, 1, e_pts, f_pts, 1, 1,
+                2, area2);
+        String[][] lcm = new String[15][15];
+        boolean[] puv = new boolean[15];
+        LaunchInterceptor cmv = new LaunchInterceptor(numpoints, points, parameters, lcm, puv);
+        assertTrue(cmv.CMV()[14]);
+    }
+
+    @Test
+    void testPUM_correct() {
+        int numpoints = 4;
+        double[][] points = { { 0, 0 }, { 0, 1 }, { 1, 0 }, { 1, 1 } };
+        double length1 = 0.5;
+        double radius1 = 0.5;
+        double area1 = 0.25;
+        double epsilon = 0;
+        ParameterRecord parameters = new ParameterRecord(length1, radius1, epsilon, area1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                1, 1, 1, 1, 1);
+        String[][] lcm = {
+                { "ANDD", "ANDD", "ORR", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "ANDD", "ANDD", "ORR", "ORR", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "ORR", "ORR", "ANDD", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "ANDD", "ORR", "ANDD", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" }
+        };
+        boolean[] puv = { true, true, true, true, false, false, false, false, false, false, false, false, false, false,
+                false };
+        LaunchInterceptor li = new LaunchInterceptor(numpoints, points, parameters, lcm, puv);
+        boolean[][] answer = {
+                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
+                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
+                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
+                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
+                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
+                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
+                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
+                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
+                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
+                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
+                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
+                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
+                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
+                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
+                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true } };
+        assertArrayEquals(answer, li.PUM());
+    }
+
+    @Test
+    void testPUM_error_lcm_not_right_input() {
+        int numpoints = 4;
+        double[][] points = { { 0, 0 }, { 0, 1 }, { 1, 0 }, { 1, 1 } };
+        double length1 = 0.5;
+        double radius1 = 0.5;
+        double area1 = 0.25;
+        double epsilon = 0;
+        ParameterRecord parameters = new ParameterRecord(length1, radius1, epsilon, area1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                1, 1, 1, 1, 1);
+        String[][] lcm = {
+                { "AND", "ANDD", "ORR", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "ANDD", "ANDD", "ORR", "ORR", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "ORR", "ORR", "ANDD", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "ANDD", "ORR", "ANDD", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" }
+        };
+        boolean[] puv = { true, true, true, true, false, false, false, false, false, false, false, false, false, false,
+                false };
+        LaunchInterceptor li = new LaunchInterceptor(numpoints, points, parameters, lcm, puv);
+        boolean[][] answer = {
+                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
+                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
+                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
+                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
+                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
+                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
+                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
+                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
+                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
+                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
+                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
+                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
+                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
+                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
+                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true } };
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            li.PUM();
+        });
+    }
+
+    @Test
+    void testPUM_error_lcm_not_symmetrical() {
+        int numpoints = 4;
+        double[][] points = { { 0, 0 }, { 0, 1 }, { 1, 0 }, { 1, 1 } };
+        double length1 = 0.5;
+        double radius1 = 0.5;
+        double area1 = 0.25;
+        double epsilon = 0;
+        ParameterRecord parameters = new ParameterRecord(length1, radius1, epsilon, area1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+                1, 1, 1, 1, 1);
+        String[][] lcm = {
+                { "ANDD", "ANDD", "ORR", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "ORR", "ANDD", "ORR", "ORR", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "ORR", "ORR", "ANDD", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "ANDD", "ORR", "ANDD", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" }
+        };
+        boolean[] puv = { true, true, true, true, false, false, false, false, false, false, false, false, false, false,
+                false };
+        LaunchInterceptor li = new LaunchInterceptor(numpoints, points, parameters, lcm, puv);
+        boolean[][] answer = {
+                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
+                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
+                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
+                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
+                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
+                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
+                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
+                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
+                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
+                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
+                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
+                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
+                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
+                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
+                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true } };
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            li.PUM();
+        });
     }
 }
