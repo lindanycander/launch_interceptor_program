@@ -901,43 +901,57 @@ public class TestLic {
 
     @Test
     void testFUV_falseArea() {
-        // test case 2 that should be true but the array FUV contains a false
-        // value. Tests lic0-lic3 but lic3 will be false with
-        // the given input values and thus one element in FUV will be false
+        // Test case 2, should be true, but lic0 and lic2 are false.
         String[][] LCM = {
-                { "ANDD", "ANDD", "ORR", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "ANDD", "ANDD", "ORR", "ORR", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "ORR", "ORR", "ANDD", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "ANDD", "ORR", "ANDD", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" }
+                        { "ANDD", "ANDD", "ORR", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "ANDD", "ANDD", "ORR", "ORR", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "ORR", "ORR", "ANDD", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "ANDD", "ORR", "ANDD", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" }
         };
-        boolean[] PUV = { true, true, true, true, false, false, false, false, false, false, false, false, false, false,
-                false };
+        boolean[] PUV = { true, true, true, true, false, false, false, false, false, false, false, false, false,
+                        false,
+                        false };
         int numpoints = 5;
         double[][] points = { { 0, 0 }, { 0, 1 }, { 1, 1 }, { 1, 0 }, { 0.5, 0 } };
         double length1 = 0.5;
@@ -947,7 +961,7 @@ public class TestLic {
         ParameterRecord parameters = new ParameterRecord(length1, radius1, epsilon, area1, 2, 2, 4, 0, 2, 1, 1, 1, 1, 1,
                 1, 1, 0, 0, 0);
         LaunchInterceptor lic = new LaunchInterceptor(numpoints, points, parameters, LCM, PUV);
-        boolean[] answer = { true, true, true, false, true, true, true, true, true, true, true, true, true, true,
+        boolean[] answer = { false, true, false, false, true, true, true, true, true, true, true, true, true, true,
                 true };
         assertArrayEquals(answer, lic.FUV());
     }
@@ -956,39 +970,55 @@ public class TestLic {
     void testFUV_falsePoint() {
         // case 3 that is true but several elements of the FUV will be false
         String[][] LCM = {
-                { "ANDD", "ANDD", "ORR", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "ANDD", "ANDD", "ORR", "ORR", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "ORR", "ORR", "ANDD", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "ANDD", "ORR", "ANDD", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" }
+                        { "ANDD", "ANDD", "ORR", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "ANDD", "ANDD", "ORR", "ORR", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "ORR", "ORR", "ANDD", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "ANDD", "ORR", "ANDD", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" }
         };
-        boolean[] PUV = { true, true, true, true, false, false, false, false, false, false, false, false, false, false,
-                false };
+        boolean[] PUV = { true, true, true, true, false, false, false, false, false, false, false, false, false,
+                        false,
+                        false };
         int numpoints = 5;
         double[][] points = { { 0, 0 }, { 0, -0.1 }, { 0.1, 0.1 }, { 0.1, 0 }, { 0.5, 0 } };
         double length1 = 0.5;
@@ -998,89 +1028,120 @@ public class TestLic {
         ParameterRecord parameters = new ParameterRecord(length1, radius1, epsilon, area1, 2, 2, 4, 0, 2, 1, 1, 1, 1, 1,
                 1, 1, 0, 0, 0);
         LaunchInterceptor lic = new LaunchInterceptor(numpoints, points, parameters, LCM, PUV);
-        boolean[] answer = { false, false, true, false, true, true, true, true, true, true, true, true, true, true,
+        boolean[] answer = { false, false, false, false, true, true, true, true, true, true, true, true, true, true,
                 true };
         assertArrayEquals(answer, lic.FUV());
     }
 
-   @Test
+    @Test
     void testCMV_correct() {
-        int numpoints = 10;
-        double[][] points = { { 0, 0 }, { 0.5, 0.5 }, { 2, 0 }, { -0.5, 0 }, { 0, 2 }, { 0, 0 }, { 0.5, 0.5 }, { 2, 0 },
-                { -0.5, 0 }, { 0, 2 } };
-        int e_pts = 1;
-        int f_pts = 1;
-        double area1 = 0.1;
-        double area2 = 5;
-        ParameterRecord parameters = new ParameterRecord(1, 1, 1, area1, 1, 1, 1, 1, 1, 1, 1, 1, 1, e_pts, f_pts, 1, 1,
-                2, area2);
+        int numpoints = 5;
+        double[][] points = { { 0, 0 }, { 0, -1 }, { 1, 1 }, { 1, 0 }, { 0.5, 0 } };
+            double length1 = 0.5;
+        double radius1 = 0.5;
+        double area1 = 0.5;
+        int epsilon = 0;
+        ParameterRecord parameters = new ParameterRecord(length1, radius1, epsilon, area1, 2, 2, 4, 0, 2, 1, 1, 1, 1, 1,
+                   1, 1, 0, 0, 0);
         String[][] lcm = new String[15][15];
         boolean[] puv = new boolean[15];
         LaunchInterceptor cmv = new LaunchInterceptor(numpoints, points, parameters, lcm, puv);
-        assertTrue(cmv.CMV()[14]);
+        assertTrue(cmv.CMV()[2]);
     }
 
     @Test
     void testPUM_correct() {
-        int numpoints = 4;
-        double[][] points = { { 0, 0 }, { 0, 1 }, { 1, 0 }, { 1, 1 } };
+        int numpoints = 5;
+        double[][] points = { { 0, 0 }, { 0, -1 }, { 1, 1 }, { 1, 0 }, { 0.5, 0 } };
         double length1 = 0.5;
         double radius1 = 0.5;
         double area1 = 0.25;
-        double epsilon = 0;
-        ParameterRecord parameters = new ParameterRecord(length1, radius1, epsilon, area1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-                1, 1, 1, 1, 1);
+        int epsilon = 0;
+        ParameterRecord parameters = new ParameterRecord(length1, radius1, epsilon, area1, 2, 2, 4, 0, 2, 1, 1,
+                        1, 1, 1,
+                        1, 1, 0, 0, 0);
         String[][] lcm = {
-                { "ANDD", "ANDD", "ORR", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "ANDD", "ANDD", "ORR", "ORR", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "ORR", "ORR", "ANDD", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "ANDD", "ORR", "ANDD", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" }
+                        { "ANDD", "ANDD", "ORR", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "ANDD", "ANDD", "ORR", "ORR", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "ORR", "ORR", "ANDD", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "ANDD", "ORR", "ANDD", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" }
         };
-        boolean[] puv = { true, true, true, true, false, false, false, false, false, false, false, false, false, false,
-                false };
+        boolean[] puv = { true, true, true, true, false, false, false, false, false, false, false, false, false,
+                        false,
+                        false };
         LaunchInterceptor li = new LaunchInterceptor(numpoints, points, parameters, lcm, puv);
         boolean[][] answer = {
-                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
-                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
-                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
-                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
-                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
-                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
-                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
-                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
-                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
-                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
-                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
-                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
-                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
-                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
-                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true } };
+                        { true, true, true, true, true, true, true, true, true, true, true, true, true, true,
+                                        true },
+                        { true, true, true, true, true, true, true, true, true, true, true, true, true, true,
+                                        true },
+                        { true, true, true, true, true, true, true, true, true, true, true, true, true, true,
+                                        true },
+                        { true, true, true, true, true, true, true, true, true, true, true, true, true, true,
+                                        true },
+                        { true, true, true, true, true, true, true, true, true, true, true, true, true, true,
+                                        true },
+                        { true, true, true, true, true, true, true, true, true, true, true, true, true, true,
+                                        true },
+                        { true, true, true, true, true, true, true, true, true, true, true, true, true, true,
+                                        true },
+                        { true, true, true, true, true, true, true, true, true, true, true, true, true, true,
+                                        true },
+                        { true, true, true, true, true, true, true, true, true, true, true, true, true, true,
+                                        true },
+                        { true, true, true, true, true, true, true, true, true, true, true, true, true, true,
+                                        true },
+                        { true, true, true, true, true, true, true, true, true, true, true, true, true, true,
+                                        true },
+                        { true, true, true, true, true, true, true, true, true, true, true, true, true, true,
+                                        true },
+                        { true, true, true, true, true, true, true, true, true, true, true, true, true, true,
+                                        true },
+                        { true, true, true, true, true, true, true, true, true, true, true, true, true, true,
+                                        true },
+                        { true, true, true, true, true, true, true, true, true, true, true, true, true, true,
+                                        true } };
         assertArrayEquals(answer, li.PUM());
     }
 
@@ -1092,61 +1153,93 @@ public class TestLic {
         double radius1 = 0.5;
         double area1 = 0.25;
         double epsilon = 0;
-        ParameterRecord parameters = new ParameterRecord(length1, radius1, epsilon, area1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-                1, 1, 1, 1, 1);
+        ParameterRecord parameters = new ParameterRecord(length1, radius1, epsilon, area1, 1, 1, 1, 1, 1, 1, 1,
+                        1, 1, 1,
+                        1, 1, 1, 1, 1);
         String[][] lcm = {
-                { "AND", "ANDD", "ORR", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "ANDD", "ANDD", "ORR", "ORR", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "ORR", "ORR", "ANDD", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "ANDD", "ORR", "ANDD", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" }
+                        { "AND", "ANDD", "ORR", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "ANDD", "ANDD", "ORR", "ORR", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "ORR", "ORR", "ANDD", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "ANDD", "ORR", "ANDD", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" }
         };
-        boolean[] puv = { true, true, true, true, false, false, false, false, false, false, false, false, false, false,
-                false };
+        boolean[] puv = { true, true, true, true, false, false, false, false, false, false, false, false, false,
+                        false,
+                        false };
         LaunchInterceptor li = new LaunchInterceptor(numpoints, points, parameters, lcm, puv);
         boolean[][] answer = {
-                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
-                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
-                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
-                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
-                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
-                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
-                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
-                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
-                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
-                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
-                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
-                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
-                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
-                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
-                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true } };
+                        { true, true, true, true, true, true, true, true, true, true, true, true, true, true,
+                                        true },
+                        { true, true, true, true, true, true, true, true, true, true, true, true, true, true,
+                                        true },
+                        { true, true, true, true, true, true, true, true, true, true, true, true, true, true,
+                                        true },
+                        { true, true, true, true, true, true, true, true, true, true, true, true, true, true,
+                                        true },
+                        { true, true, true, true, true, true, true, true, true, true, true, true, true, true,
+                                        true },
+                        { true, true, true, true, true, true, true, true, true, true, true, true, true, true,
+                                        true },
+                        { true, true, true, true, true, true, true, true, true, true, true, true, true, true,
+                                        true },
+                        { true, true, true, true, true, true, true, true, true, true, true, true, true, true,
+                                        true },
+                        { true, true, true, true, true, true, true, true, true, true, true, true, true, true,
+                                        true },
+                        { true, true, true, true, true, true, true, true, true, true, true, true, true, true,
+                                        true },
+                        { true, true, true, true, true, true, true, true, true, true, true, true, true, true,
+                                        true },
+                        { true, true, true, true, true, true, true, true, true, true, true, true, true, true,
+                                        true },
+                        { true, true, true, true, true, true, true, true, true, true, true, true, true, true,
+                                        true },
+                        { true, true, true, true, true, true, true, true, true, true, true, true, true, true,
+                                        true },
+                        { true, true, true, true, true, true, true, true, true, true, true, true, true, true,
+                                        true } };
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            li.PUM();
+                li.PUM();
         });
     }
 
@@ -1158,61 +1251,93 @@ public class TestLic {
         double radius1 = 0.5;
         double area1 = 0.25;
         double epsilon = 0;
-        ParameterRecord parameters = new ParameterRecord(length1, radius1, epsilon, area1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-                1, 1, 1, 1, 1);
+        ParameterRecord parameters = new ParameterRecord(length1, radius1, epsilon, area1, 1, 1, 1, 1, 1, 1, 1,
+                        1, 1, 1,
+                        1, 1, 1, 1, 1);
         String[][] lcm = {
-                { "ANDD", "ANDD", "ORR", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "ORR", "ANDD", "ORR", "ORR", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "ORR", "ORR", "ANDD", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "ANDD", "ORR", "ANDD", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" }
+                        { "ANDD", "ANDD", "ORR", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "ORR", "ANDD", "ORR", "ORR", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "ORR", "ORR", "ANDD", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "ANDD", "ORR", "ANDD", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                        { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED",
+                                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" }
         };
-        boolean[] puv = { true, true, true, true, false, false, false, false, false, false, false, false, false, false,
-                false };
+        boolean[] puv = { true, true, true, true, false, false, false, false, false, false, false, false, false,
+                        false,
+                        false };
         LaunchInterceptor li = new LaunchInterceptor(numpoints, points, parameters, lcm, puv);
         boolean[][] answer = {
-                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
-                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
-                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
-                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
-                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
-                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
-                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
-                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
-                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
-                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
-                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
-                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
-                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
-                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
-                { true, true, true, true, true, true, true, true, true, true, true, true, true, true, true } };
+                        { true, true, true, true, true, true, true, true, true, true, true, true, true, true,
+                                        true },
+                        { true, true, true, true, true, true, true, true, true, true, true, true, true, true,
+                                        true },
+                        { true, true, true, true, true, true, true, true, true, true, true, true, true, true,
+                                        true },
+                        { true, true, true, true, true, true, true, true, true, true, true, true, true, true,
+                                        true },
+                        { true, true, true, true, true, true, true, true, true, true, true, true, true, true,
+                                        true },
+                        { true, true, true, true, true, true, true, true, true, true, true, true, true, true,
+                                        true },
+                        { true, true, true, true, true, true, true, true, true, true, true, true, true, true,
+                                        true },
+                        { true, true, true, true, true, true, true, true, true, true, true, true, true, true,
+                                        true },
+                        { true, true, true, true, true, true, true, true, true, true, true, true, true, true,
+                                        true },
+                        { true, true, true, true, true, true, true, true, true, true, true, true, true, true,
+                                        true },
+                        { true, true, true, true, true, true, true, true, true, true, true, true, true, true,
+                                        true },
+                        { true, true, true, true, true, true, true, true, true, true, true, true, true, true,
+                                        true },
+                        { true, true, true, true, true, true, true, true, true, true, true, true, true, true,
+                                        true },
+                        { true, true, true, true, true, true, true, true, true, true, true, true, true, true,
+                                        true },
+                        { true, true, true, true, true, true, true, true, true, true, true, true, true, true,
+                                        true } };
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            li.PUM();
+                li.PUM();
         });
     }
 }
