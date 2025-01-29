@@ -32,6 +32,7 @@ public class TestLic {
 
     @Test
     void testLic1_withinCircle_false() {
+        // Case 1, we know to be false according to input variables
         int numpoints = 3;
         double[][] points = { { 0, 0 }, { 1, 0 }, { 0.5, Math.sqrt(0.5) } };
         ParameterRecord parameters = new ParameterRecord(0, 1.0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
@@ -43,6 +44,7 @@ public class TestLic {
 
     @Test
     void testLic1_outsideCircle_true() {
+        // Case 2, we know to be true according to input variables
         int numpoints = 3;
         double[][] points = { { 0, 0 }, { 2, 0 }, { 1, Math.sqrt(0.5) } };
         ParameterRecord parameters = new ParameterRecord(0, 1.0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
@@ -54,6 +56,7 @@ public class TestLic {
 
     @Test
     void testLic1_lessThanThreePoints_false() {
+        // Case 3, we know to be false since there are too few points
         int numpoints = 2;
         double[][] points = { { 0, 0 }, { 1, 1 } };
         ParameterRecord parameters = new ParameterRecord(0, 1.0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
@@ -65,6 +68,7 @@ public class TestLic {
 
     @Test
     void testLic1_onCircle_false() {
+        // Case 4, we know to be false according to input variables
         int numpoints = 3;
         double[][] points = { { 1, 0 }, { 0, 1 }, { -1, 0 } };
         ParameterRecord parameters = new ParameterRecord(0, 1.0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
@@ -76,6 +80,7 @@ public class TestLic {
 
     @Test
     void testLic1_moreThanThreePoints_true() {
+        // Case 5, we know to be true according to input variables
         int numpoints = 4;
         double[][] points = { { 0, 0 }, { 2, 0 }, { 1, Math.sqrt(3) }, { 0, 2 } };
         ParameterRecord parameters = new ParameterRecord(0, 1.0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
@@ -195,7 +200,8 @@ public class TestLic {
 
     @Test
     void testLic4_boundaries() {
-        // Case 2, we know to be false according to input variables
+        // Case 3, checks a special case (the bounderies), we know to be false
+        // acording to input variables ad
         int numpoints = 4;
         double[][] points = { { 1, 0 }, { 0, 1 }, { -1, 0 }, { 0, -1 } };
         ParameterRecord parameters = new ParameterRecord(0, 0, 0, 1, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
@@ -207,6 +213,7 @@ public class TestLic {
 
     @Test
     void tistLic5_true() {
+        // Case 1, we know to be true according to input variables
         int numpoints = 5;
         double[][] points = { { 0, 0 }, { 1, 1 }, { 1.5, 5 }, { 5, -3 }, { 3, 1.2 } };
         ParameterRecord parameters = new ParameterRecord(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
@@ -218,6 +225,7 @@ public class TestLic {
 
     @Test
     void tistLic5_false() {
+        // Case 2, we know to be false according to input variables
         int numpoints = 5;
         double[][] points = { { -5, -3 }, { -3.2, 1 }, { 0.5, 2 }, { 2, 3 }, { 3, 5 } };
         ParameterRecord parameters = new ParameterRecord(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
@@ -243,7 +251,7 @@ public class TestLic {
 
     @Test
     void testLic6_false() {
-        // Case 1, we know to be true according to input variables
+        // Case 2, we know to be false according to input variables
         int numpoints = 6;
         double[][] points = { { 0, -1 }, { 0.5, 2 }, { 1, 0 }, { 0.5, -0.5 }, { 0, -0.5 }, { 0.5, 0 } };
         double distance = 2;
@@ -257,7 +265,7 @@ public class TestLic {
 
     @Test
     void testLic7_true() {
-        // We know to be true according to input variables
+        // Case 1, we know to be true according to input variables
         int numpoints = 3;
         double[][] points = { { -2, 3 }, { 1, -5 }, { -3, 8 } };
         ParameterRecord parameters = new ParameterRecord(1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
@@ -269,7 +277,7 @@ public class TestLic {
 
     @Test
     void testLic7_false_to_few_NUMPOINTS() {
-        // We know to be false according to input variables
+        // Case 2, we know to be false since there are too few points
         int numpoints = 2;
         double[][] points = { { 1, -5 }, { -3, 8 } };
         ParameterRecord parameters = new ParameterRecord(1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
@@ -281,7 +289,7 @@ public class TestLic {
 
     @Test
     void testLic7_false_K_PTS_greater_than_NUMPOINTS() {
-        // We know to be false according to input variables
+        // Case 3, we know to be false since K_PTS is greater than NUMPOINTS
         int numpoints = 2;
         double[][] points = { { 1, -5 }, { -3, 8 } };
         ParameterRecord parameters = new ParameterRecord(1, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
@@ -293,6 +301,7 @@ public class TestLic {
 
     @Test
     void testLic8_true() {
+        // Case 1, we know to be true according to input variables
         int numpoints = 5;
         double[][] points = { { 0, 2 }, { 3, 15 }, { 0, 0 }, { -5, -5 }, { 2, 0 } };
         double radius1 = 0.5;
@@ -308,6 +317,8 @@ public class TestLic {
 
     @Test
     void testLic8_onLine_false() {
+        // Case 2, we know to be false according to input variables (the points are on a
+        // line)
         int numpoints = 5;
         double[][] points = { { 0, 0 }, { 0, 1 }, { 0, 2 }, { 0, 3 }, { 0, 4 } };
         double radius1 = 3;
@@ -323,6 +334,7 @@ public class TestLic {
 
     @Test
     void testLic8_false() {
+        // Case 3, we know to be false according to input variables
         int numpoints = 6;
         double[][] points = { { 0, 0 }, { 0, 1 }, { 1, 0 }, { 1, 1 }, { -1, 0 }, { -1, -1 } };
         double radius1 = 2;
@@ -338,6 +350,7 @@ public class TestLic {
 
     @Test
     void testLic9_less_than_PI_true() {
+        // Case 1, we know to be true according to input variables
         int numpoints = 12;
         double[][] points = { { 0, 5 }, { 0, 0 }, { 5, 0 }, { 0, 5 }, { 0, 0 }, { 5, 0 }, { 0, 5 }, { 0, 0 }, { 5, 0 },
                 { 0, 5 }, { 0, 0 }, { 5, 0 } };
@@ -350,6 +363,7 @@ public class TestLic {
 
     @Test
     void testLic9_greater_than_PI_true() {
+        // Case 2, we know to be true according to input variables
         int numpoints = 12;
         double[][] points = { { -1, -1 }, { 0, 0 }, { 1, 0 }, { -1, -1 }, { 0, 0 }, { 1, 0 }, { -1, -1 }, { 0, 0 },
                 { 1, 0 }, { -1, -1 }, { 0, 0 }, { 1, 0 } };
@@ -362,6 +376,7 @@ public class TestLic {
 
     @Test
     void testLic9_false() {
+        // Case 3, we know to be false according to input variables
         int numpoints = 12;
         double[][] points = { { 0, 5 }, { 0, 0 }, { 5, 0 }, { 0, 5 }, { 0, 0 }, { 5, 0 }, { 0, 5 }, { 0, 0 }, { 5, 0 },
                 { 0, 5 }, { 0, 0 }, { 5, 0 } };
@@ -374,6 +389,7 @@ public class TestLic {
 
     @Test
     void testLic10_true() {
+        // Case 1, we know to be true according to input variables
         int numpoints = 6;
         double[][] points = { { 0, 0 }, { 0, 0 }, { 0, 0 }, { 2, 0 }, { 0, 0 }, { 0, 6 } };
         ParameterRecord paramters = new ParameterRecord(0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 0, 0, 0, 0);
@@ -385,6 +401,7 @@ public class TestLic {
 
     @Test
     void testLic10_false_too_large_AREA1() {
+        // Case 2, we know to be false according to input variables
         int numpoints = 6;
         double[][] points = { { 0, 0 }, { 0, 0 }, { 0, 0 }, { 2, 0 }, { 0, 0 }, { 0, 6 } };
         ParameterRecord paramters = new ParameterRecord(0, 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 0, 0, 0, 0);
@@ -396,6 +413,7 @@ public class TestLic {
 
     @Test
     void testLic10_false_to_few_numpoints_compared_to_E_F_PTS() {
+        // Case 3, we know to be false since there are too few points
         int numpoints = 6;
         double[][] points = { { 0, 0 }, { 0, 0 }, { 0, 0 }, { 2, 0 }, { 0, 0 }, { 0, 6 } };
         ParameterRecord paramters = new ParameterRecord(0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 0, 0, 0, 0);
@@ -407,6 +425,7 @@ public class TestLic {
 
     @Test
     void testLic11_false_input() {
+        // Case 1, we know to be false since there are too few points
         int numpoints = 4;
         double[][] points = { { 0, 0 }, { -1, 0 }, { -2, 0 }, { -3, 0 } };
         ParameterRecord parameters = new ParameterRecord(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0);
@@ -418,6 +437,7 @@ public class TestLic {
 
     @Test
     void testLic11_false() {
+        // Case 2, we know to be false according to input variables
         int numpoints = 4;
         double[][] points = { { 0, 0 }, { 1, 1 }, { 2, 2 }, { 3, 3 } };
         ParameterRecord parameters = new ParameterRecord(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0);
@@ -429,6 +449,7 @@ public class TestLic {
 
     @Test
     void testLic11_true() {
+        // Case 3, we know to be true according to input variables
         int numpoints = 5;
         double[][] points = { { 0, 2 }, { 5, 0 }, { 9, 3 }, { 7, 0 }, { 4, -3 } };
         ParameterRecord parameters = new ParameterRecord(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0);
@@ -440,6 +461,7 @@ public class TestLic {
 
     @Test
     void testLic12_true() {
+        // Case 1, we know to be true according to input variables
         int numpoints = 5;
         double[][] points = { { 0, 2 }, { 3, 3 }, { -1, 2 }, { 0, 0 }, { -1, -1 } };
         double length1 = 1.5;
@@ -455,6 +477,7 @@ public class TestLic {
 
     @Test
     void testLic12_false() {
+        // Case 2, we know to be false according to input variables
         int numpoints = 5;
         double[][] points = { { 0, 2 }, { 0, 0.5 }, { 0, 0.2 }, { 0, 0 }, { 0, 0.2 } };
         double length1 = 2;
@@ -470,6 +493,7 @@ public class TestLic {
 
     @Test
     void testLic13_true() {
+        // Case 1, we know to be true according to input variables
         int numpoints = 5;
         double[][] points = { { 0, 2 }, { 3, 15 }, { 0, 0 }, { -5, -5 }, { 2, 0 } };
         double radius1 = 0.5;
@@ -486,6 +510,8 @@ public class TestLic {
 
     @Test
     void testLic13_onLine_false() {
+        // Case 2, we know to be false according to input variables (the points are on a
+        // line)
         int numpoints = 5;
         double[][] points = { { 0, 0 }, { 0, 1 }, { 0, 2 }, { 0, 3 }, { 0, 4 } };
         double radius1 = 3;
@@ -502,6 +528,7 @@ public class TestLic {
 
     @Test
     void testLic13_false() {
+        // Case 3, we know to be false according to input variables
         int numpoints = 6;
         double[][] points = { { 0, 0 }, { 0, 1 }, { 1, 0 }, { 1, 1 }, { -1, 0 }, { -1, -1 } };
         double radius1 = 2;
@@ -518,6 +545,7 @@ public class TestLic {
 
     @Test
     void testLic14_true() {
+        // Case 1, we know to be true according to input variables
         int numpoints = 5;
         double[][] points = { { 0, 0 }, { 0.5, 0.5 }, { 2, 0 }, { -0.5, 0 }, { 0, 2 } };
         int e_pts = 1;
@@ -534,6 +562,7 @@ public class TestLic {
 
     @Test
     void testLic14_false() {
+        // Case 2, we know to be false according to input variables
         int numpoints = 5;
         double[][] points = { { 0, 0 }, { 0.5, 0.5 }, { 2, 0 }, { -0.5, 0 }, { 0, 2 } };
         int e_pts = 1;
