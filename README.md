@@ -58,6 +58,7 @@ java -jar target/decide-1.0-SNAPSHOT.jar
 - [#68: refactor: reorder the LIC methods in LaunchInterceptor class](https://github.com/lindanycander/launch_interceptor_program/pull/68)
 - [#69: test: remove unnecessary System.out.println statements](https://github.com/lindanycander/launch_interceptor_program/pull/69)
 - [#71: fix: add maven-jar-plugin to our pom.xml to make jar exec](https://github.com/lindanycander/launch_interceptor_program/pull/69)
+- [#84: docs: add javadoc comments to all methods](https://github.com/lindanycander/launch_interceptor_program/pull/84)
 
 ### Elin Fransholm
 
@@ -83,7 +84,6 @@ java -jar target/decide-1.0-SNAPSHOT.jar
 - [#74: feat: add test case for lic7](https://github.com/lindanycander/launch_interceptor_program/pull/74)
 - [#79: feat: add exceptions for all lic-methods](https://github.com/lindanycander/launch_interceptor_program/pull/79)
 - [#82: feat: add a test for lic5](https://github.com/lindanycander/launch_interceptor_program/pull/82)
--
 
 ### Philip Ågren-Jahnsson
 
