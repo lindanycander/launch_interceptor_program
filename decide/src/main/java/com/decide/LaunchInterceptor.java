@@ -37,6 +37,58 @@ public class LaunchInterceptor {
 
     public static void main(String[] args) {
         System.out.println("Launch interceptor program!");
+        String[][] LCM = {
+                { "ANDD", "ANDD", "ORR", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "ANDD", "ANDD", "ORR", "ORR", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "ORR", "ORR", "ANDD", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "ANDD", "ORR", "ANDD", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" }
+        };
+        boolean[] PUV = { true, true, true, true, false, false, false, false, false, false, false, false, false, false,
+                false };
+        int numpoints = 5;
+        double[][] points = { { 0, 0 }, { 0, 1 }, { 1, 1 }, { 1, 0 }, { 0.5, 0 } };
+        double length1 = 0.5;
+        double radius1 = 0.5;
+        double area1 = 0.25;
+        int epsilon = 0;
+        ParameterRecord parameters = new ParameterRecord(length1, radius1, epsilon, area1, 2, 2, 4, 0, 2, 1, 1, 1, 1, 1,
+                1, 1, 0, 0, 0);
+        LaunchInterceptor lic = new LaunchInterceptor(numpoints, points, parameters, LCM, PUV);
+        boolean decision = lic.decide();
+        System.out.println("Calculating...");
+        if (decision) {
+            System.out.println(
+                    "=====Ready to launch the interceptor based upon the input radar tracking inforamtion!=====");
+        } else {
+            System.out.println("=====ABORT: not ready to launch!=====");
+        }
+
     }
 
     /**
@@ -753,19 +805,24 @@ public class LaunchInterceptor {
         for (int i = 0; i < 15; i++) {
             for (int j = 0; j < 15; j++) {
                 PUM[i][j] = false;
-                // Checks what LCM entry is set as
-                switch (this.LCM[i][j]) {
-                    case "NOTUSED":
-                        PUM[i][j] = true;
-                    case "ANDD":
-                        if (cmv[i] == true && cmv[j] == true) {
-                            PUM[i][j] = true;
-                        }
-                    case "ORR":
-                        if (cmv[i] == true || cmv[j] == true) {
-                            PUM[i][j] = true;
-                        }
+                if (!(this.LCM[i][j].equals(this.LCM[j][i]))) {
+                    throw new IllegalArgumentException("LCM matrix is not symmetrical");
                 }
+                // Checks what LCM entry is set as
+                if (LCM[i][j].equals("NOTUSED")) {
+                    PUM[i][j] = true;
+                } else if (LCM[i][j].equals("ANDD")) {
+                    if ((cmv[i] == true) && (cmv[j] == true)) {
+                        PUM[i][j] = true;
+                    }
+                } else if (LCM[i][j].equals("ORR")) {
+                    if ((cmv[i] == true) || (cmv[j] == true)) {
+                        PUM[i][j] = true;
+                    }
+                } else {
+                    throw new IllegalArgumentException("Wrong input in LCM matrix [" + i + ", " + j + "]");
+                }
+
             }
         }
         return PUM;
@@ -799,5 +856,16 @@ public class LaunchInterceptor {
         }
         return FUV;
 
+    }
+
+    public boolean decide() {
+        boolean[] FUV = FUV();
+        boolean launch = true;
+        for (int i = 0; i < 15; i++) {
+            if (FUV[i] == false) {
+                launch = false;
+            }
+        }
+        return launch;
     }
 }
