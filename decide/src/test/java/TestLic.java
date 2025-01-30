@@ -1,10 +1,8 @@
+import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
-import org.junit.jupiter.api.Assertions;
-
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import org.junit.jupiter.api.Test;
 
 import com.decide.LaunchInterceptor;
@@ -1030,6 +1028,38 @@ public class TestLic {
         boolean[] puv = new boolean[15];
         LaunchInterceptor cmv = new LaunchInterceptor(numpoints, points, parameters, lcm, puv);
         assertTrue(cmv.CMV()[2]);
+    }
+
+    @Test
+    void testCMV_error_invalid_input() {
+        int numpoints = 5;
+        double[][] points = { { 0, 0 }, { 0, -1 }, { 1, 1 }, { 1, 0 }, { 0.5, 0 } };
+            double length1 = 0.5;
+        double radius1 = 0.5;
+        double area1 = 0.5;
+        int epsilon = 0;
+        ParameterRecord parameters = new ParameterRecord(length1, radius1, epsilon, area1, 2, 2, 0, 0, 2, 1, 1, 1, 1, 1,
+                   1, 1, 0, 0, 0);
+        String[][] lcm = new String[15][15];
+        boolean[] puv = new boolean[15];
+        LaunchInterceptor cmv = new LaunchInterceptor(numpoints, points, parameters, lcm, puv);
+        assertThrows(IllegalArgumentException.class, () -> cmv.CMV());
+    }
+
+    @Test
+    void testCMV_1_false() {
+        int numpoints = 5;
+        double[][] points = { { 0, 0 }, { 0, -1 }, { 1, 1 }, { 1, 0 }, { 0.5, 0 } };
+        double length1 = 5;
+        double radius1 = 0.5;
+        double area1 = 0.5;
+        int epsilon = 0;
+        ParameterRecord parameters = new ParameterRecord(length1, radius1, epsilon, area1, 2, 2, 4, 0, 2, 1, 1, 1, 1, 1,
+                   1, 1, 0, 0, 0);
+        String[][] lcm = new String[15][15];
+        boolean[] puv = new boolean[15];
+        LaunchInterceptor cmv = new LaunchInterceptor(numpoints, points, parameters, lcm, puv);
+        assertFalse(cmv.CMV()[0]);
     }
 
     @Test
