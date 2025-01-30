@@ -87,6 +87,7 @@ Each person has contributed to the project by creating issues, particpating in a
 - [#74: feat: add test case for lic7](https://github.com/lindanycander/launch_interceptor_program/pull/74)
 - [#79: feat: add exceptions for all lic-methods](https://github.com/lindanycander/launch_interceptor_program/pull/79)
 - [#82: feat: add a test for lic5](https://github.com/lindanycander/launch_interceptor_program/pull/82)
+- [#94: docs: remove duplicate comment and add missing javadoc comments](https://github.com/lindanycander/launch_interceptor_program/pull/94)
 
 ### Philip Ågren-Jahnsson
 
