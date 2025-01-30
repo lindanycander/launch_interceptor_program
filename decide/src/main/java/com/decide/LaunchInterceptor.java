@@ -123,8 +123,6 @@ public class LaunchInterceptor {
      * @throws IllegalArgumentException if RADIUS1 is less than 0.
      */
     public boolean lic1() {
-        // There exists at least one set of three consecutive data points that cannot
-        // all be contained within or on a circle of radius RADIUS1.
         if (this.PARAMETERS.RADIUS1 < 0) {
             throw new IllegalArgumentException("Radius1 must be greater than or equal to 0");
         }
@@ -214,8 +212,6 @@ public class LaunchInterceptor {
      * @throws IllegalArgumentException if AREA1 is less than 0.
      */
     public boolean lic3() {
-        // There exists at least one set of three consecutive data points that are the
-        // vertices of a triangle with area greater than AREA1
         if (this.PARAMETERS.AREA1 < 0) {
             throw new IllegalArgumentException("Area1 must be greater than or equal to 0");
         }
@@ -248,13 +244,6 @@ public class LaunchInterceptor {
      *                                  or QUADS is not in the range [1, 3].
      */
     public boolean lic4() {
-        // There exists at least one set of Q_PTS consecutive data points that lie in
-        // more than QUADS quadrants. Where there is ambiguity as to which quadrant
-        // contains a given point, priority of decision will be by quadrant number,
-        // i.e., I, II, III, IV. For example, the data point (0,0) is in quadrant I, the
-        // point (-1,0) is in quadrant II, the point (0,-1) is in quadrant III, the
-        // point (0,1) is in quadrant I and the point (1,0) is in quadrant I. (2 ≤ Q_PTS
-        // ≤ NUMPOINTS), (1 ≤ QUADS ≤ 3)
         if (this.PARAMETERS.Q_PTS < 2 || this.PARAMETERS.Q_PTS > this.NUMPOINTS || this.PARAMETERS.QUADS < 1
                 || this.PARAMETERS.QUADS > 3) {
             throw new IllegalArgumentException(
@@ -388,11 +377,6 @@ public class LaunchInterceptor {
      *                                  2].
      */
     public boolean lic7() {
-        // There exists at least one set of two data points separated by exactly K PTS
-        // consecutive intervening points that are a distance greater than the length,
-        // LENGTH1, apart. The condition
-        // is not met when NUMPOINTS < 3.
-        // 1 ≤ K PTS ≤ (NUMPOINTS−2)
         if (this.PARAMETERS.K_PTS < 1 || this.PARAMETERS.K_PTS > this.NUMPOINTS - 2) {
             throw new IllegalArgumentException("K_PTS must be between 1 and NUMPOINTS - 2");
         }
@@ -543,11 +527,6 @@ public class LaunchInterceptor {
      *                                  if AREA1 is less than 0.
      */
     public boolean lic10() {
-        // There exists at least one set of three data points separated by exactly E PTS
-        // and F PTS consecutive intervening points, respectively, that are the vertices
-        // of a
-        // triangle with area greater than AREA1. The condition is not met when
-        // NUMPOINTS < 5.
         if (this.PARAMETERS.E_PTS < 1 || this.PARAMETERS.F_PTS < 1
                 || this.PARAMETERS.E_PTS + this.PARAMETERS.F_PTS > this.NUMPOINTS - 3 || this.PARAMETERS.AREA1 < 0) {
             throw new IllegalArgumentException(
@@ -658,8 +637,7 @@ public class LaunchInterceptor {
 
     /**
      * There exists at least one set of three data points, separated by exactly
-     * A_PTS
-     * and B_PTS consecutive intervening points, respectively, that cannot be
+     * A_PTS and B_PTS consecutive intervening points, respectively, that cannot be
      * contained within or on a circle ofradius RADIUS1. In addition, there exists
      * at least one set of three data points (which can bethe same or different from
      * the three data points just mentioned) separated by exactly A_PTS and B_PTS
@@ -731,8 +709,7 @@ public class LaunchInterceptor {
 
     /**
      * There exists at least one set of three data points, separated by exactly
-     * E_PTS
-     * and F_PTS con-secutive intervening points, respectively, that are the
+     * E_PTS and F_PTS con-secutive intervening points, respectively, that are the
      * vertices of a triangle with area greaterthan AREA1. In addition, there exist
      * three data points (which can be the same or differentfrom the three data
      * points just mentioned) separated by exactly E_PTS and F_PTS consecutive
