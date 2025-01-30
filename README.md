@@ -45,6 +45,8 @@ java -jar target/decide-1.0-SNAPSHOT.jar
 
 ## Statement of Contributions
 
+Each person has contributed to the project by creating issues, particpating in assigning issues among the group, writing code and creating pull requests, and reviewing other group members' pull requests. Reviews have been divided among the group members in a way that everyone has reviewed a fair share of the PRs and in a way that all group members have a solid knowledge of the codebase.
+
 ### Vilhelm Prytz
 
 - [#28: fix: update .gitignore for Maven as well](https://github.com/lindanycander/launch_interceptor_program/pull/28)
@@ -59,6 +61,7 @@ java -jar target/decide-1.0-SNAPSHOT.jar
 - [#69: test: remove unnecessary System.out.println statements](https://github.com/lindanycander/launch_interceptor_program/pull/69)
 - [#71: fix: add maven-jar-plugin to our pom.xml to make jar exec](https://github.com/lindanycander/launch_interceptor_program/pull/69)
 - [#84: docs: add javadoc comments to all methods](https://github.com/lindanycander/launch_interceptor_program/pull/84)
+- [#93: docs: update statement of contributions in README](https://github.com/lindanycander/launch_interceptor_program/pull/93)
 
 ### Elin Fransholm
 
@@ -84,6 +87,7 @@ java -jar target/decide-1.0-SNAPSHOT.jar
 - [#74: feat: add test case for lic7](https://github.com/lindanycander/launch_interceptor_program/pull/74)
 - [#79: feat: add exceptions for all lic-methods](https://github.com/lindanycander/launch_interceptor_program/pull/79)
 - [#82: feat: add a test for lic5](https://github.com/lindanycander/launch_interceptor_program/pull/82)
+- [#94: docs: remove duplicate comment and add missing javadoc comments](https://github.com/lindanycander/launch_interceptor_program/pull/94)
 
 ### Philip Ågren-Jahnsson
 
@@ -94,7 +98,8 @@ java -jar target/decide-1.0-SNAPSHOT.jar
 - [#30: feat: Add method lic7()](https://github.com/lindanycander/launch_interceptor_program/pull/30)
 - [#39: feat: Add lic9()](https://github.com/lindanycander/launch_interceptor_program/pull/39)
 - [#60: feat: Add lic10()](https://github.com/lindanycander/launch_interceptor_program/pull/60)
-- [#82: fix: Implement CMV & PUM tests](https://github.com/lindanycander/launch_interceptor_program/pull/81)
+- [#81: fix: Implement CMV & PUM tests](https://github.com/lindanycander/launch_interceptor_program/pull/81)
+- [#92: fix: Implement all CMV tests](https://github.com/lindanycander/launch_interceptor_program/pull/92)
 
 ## Way of Working
 
