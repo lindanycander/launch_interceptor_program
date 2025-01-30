@@ -94,7 +94,8 @@ java -jar target/decide-1.0-SNAPSHOT.jar
 - [#30: feat: Add method lic7()](https://github.com/lindanycander/launch_interceptor_program/pull/30)
 - [#39: feat: Add lic9()](https://github.com/lindanycander/launch_interceptor_program/pull/39)
 - [#60: feat: Add lic10()](https://github.com/lindanycander/launch_interceptor_program/pull/60)
-- [#82: fix: Implement CMV & PUM tests](https://github.com/lindanycander/launch_interceptor_program/pull/81)
+- [#81: fix: Implement CMV & PUM tests](https://github.com/lindanycander/launch_interceptor_program/pull/81)
+- [#92: fix: Implement all CMV tests](https://github.com/lindanycander/launch_interceptor_program/pull/92)
 
 ## Way of Working
 
