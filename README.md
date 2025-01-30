@@ -45,6 +45,8 @@ java -jar target/decide-1.0-SNAPSHOT.jar
 
 ## Statement of Contributions
 
+Each person has contributed to the project by creating issues, particpating in assigning issues among the group, writing code and creating pull requests, and reviewing other group members' pull requests. Reviews have been divided among the group members in a way that everyone has reviewed a fair share of the PRs and in a way that all group members have a solid knowledge of the codebase.
+
 ### Vilhelm Prytz
 
 - [#28: fix: update .gitignore for Maven as well](https://github.com/lindanycander/launch_interceptor_program/pull/28)
