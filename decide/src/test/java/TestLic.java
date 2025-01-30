@@ -1104,9 +1104,6 @@ public class TestLic {
         double radius1 = 0.5;
         double area1 = 0.25;
         int epsilon = 0;
-        // ParameterRecord parameters = new ParameterRecord(length1, radius1, epsilon,
-        // area1, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0,
-        // 0, 0, 0, 0, 0);
         ParameterRecord parameters = new ParameterRecord(length1, radius1, epsilon, area1, 2, 2, 4, 0, 2, 1, 1, 1, 1, 1,
                 1, 1, 0, 0, 0);
         LaunchInterceptor lic = new LaunchInterceptor(numpoints, points, parameters, LCM, PUV);
