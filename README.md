@@ -59,6 +59,7 @@ java -jar target/decide-1.0-SNAPSHOT.jar
 - [#69: test: remove unnecessary System.out.println statements](https://github.com/lindanycander/launch_interceptor_program/pull/69)
 - [#71: fix: add maven-jar-plugin to our pom.xml to make jar exec](https://github.com/lindanycander/launch_interceptor_program/pull/69)
 - [#84: docs: add javadoc comments to all methods](https://github.com/lindanycander/launch_interceptor_program/pull/84)
+- [#93: docs: update statement of contributions in README](https://github.com/lindanycander/launch_interceptor_program/pull/93)
 
 ### Elin Fransholm
 
