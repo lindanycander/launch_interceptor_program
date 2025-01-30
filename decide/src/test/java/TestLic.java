@@ -11,7 +11,13 @@ import org.junit.jupiter.api.Test;
 import com.decide.LaunchInterceptor;
 import com.decide.LaunchInterceptor.ParameterRecord;
 
+/**
+ * Unit tests for the LaunchInterceptor class.
+ */
 public class TestLic {
+    /**
+     * Tests the lic0 method with input variables that should return true.
+     */
     @Test
     void testLic0_true() {
         // Case 1, we know to be true according to input variables
@@ -25,6 +31,9 @@ public class TestLic {
         assertTrue(lic.lic0());
     }
 
+    /**
+     * Tests the lic0 method with input variables that should return false.
+     */
     @Test
     void testLic0_false() {
         // Case 2, we know to be false according to input variables
@@ -38,6 +47,9 @@ public class TestLic {
         assertFalse(lic.lic0());
     }
 
+    /**
+     * Tests the lic0 method with illegal input variables.
+     */
     @Test
     void testLic0_illegalArg() {
         // Case 3, we know to be throw exception since the length is negative
@@ -51,6 +63,9 @@ public class TestLic {
         assertThrows(IllegalArgumentException.class, () -> lic.lic0());
     }
 
+    /**
+     * Tests the lic1 method with points within a circle, expecting false.
+     */
     @Test
     void testLic1_withinCircle_false() {
         // Case 1, we know to be false according to input variables
@@ -64,6 +79,9 @@ public class TestLic {
         assertFalse(lic.lic1());
     }
 
+    /**
+     * Tests the lic1 method with points outside a circle, expecting true.
+     */
     @Test
     void testLic1_outsideCircle_true() {
         // Case 2, we know to be true according to input variables
@@ -77,6 +95,9 @@ public class TestLic {
         assertTrue(lic.lic1());
     }
 
+    /**
+     * Tests the lic1 method with less than three points, expecting false.
+     */
     @Test
     void testLic1_lessThanThreePoints_false() {
         // Case 3, we know to be false since there are too few points
@@ -90,6 +111,9 @@ public class TestLic {
         assertFalse(lic.lic1());
     }
 
+    /**
+     * Tests the lic1 method with points on a circle, expecting false.
+     */
     @Test
     void testLic1_onCircle_false() {
         // Case 4, we know to be false according to input variables
@@ -103,6 +127,9 @@ public class TestLic {
         assertFalse(lic.lic1());
     }
 
+    /**
+     * Tests the lic1 method with more than three points, expecting true.
+     */
     @Test
     void testLic1_moreThanThreePoints_true() {
         // Case 5, we know to be true according to input variables
@@ -116,6 +143,9 @@ public class TestLic {
         assertTrue(lic.lic1());
     }
 
+    /**
+     * Tests the lic1 method with more than three points, expecting true.
+     */
     @Test
     void testLic1_illegalArg() {
         // Case 6, we know to throw exception since the radius is negative
@@ -129,6 +159,9 @@ public class TestLic {
         assertThrows(IllegalArgumentException.class, () -> lic.lic1());
     }
 
+    /**
+     * Tests the lic2 method with input variables that should return true.
+     */
     @Test
     void testLic2_lessThanPi_true() {
         // Case 1, we know to be true according to input variables
@@ -142,6 +175,9 @@ public class TestLic {
         assertTrue(lic.lic2());
     }
 
+    /**
+     * Tests the lic2 method with input variables that should return true.
+     */
     @Test
     void testLic2_greaterThanPi_true() {
         // Case 2, we know to be true according to input variables
@@ -155,6 +191,9 @@ public class TestLic {
         assertTrue(lic.lic2());
     }
 
+    /**
+     * Tests the lic2 method with input variables that should return false.
+     */
     @Test
     void testLic2_false() {
         // Case 3, we know to be false according to input variables
@@ -168,6 +207,9 @@ public class TestLic {
         assertFalse(lic.lic2());
     }
 
+    /**
+     * Tests the lic2 method with input variables that should return false (skip).
+     */
     @Test
     void testLic2_skip_false() {
         // Case 4, we know to be false because one point is equal to the vertex-point
@@ -181,6 +223,10 @@ public class TestLic {
         assertFalse(lic.lic2());
     }
 
+    /**
+     * Tests the lic2 method with input variables that should return false, parallel
+     * vectors.
+     */
     @Test
     void testLic2_parallel_false() {
         // Case 5, we know to be false since the vectors are parallel
@@ -194,6 +240,9 @@ public class TestLic {
         assertFalse(lic.lic2());
     }
 
+    /**
+     * Tests the lic2 method with input variables that should cause an exception.
+     */
     @Test
     void testLic2_illegalArg() {
         // Case 6, we know to throw exception since epsilon is negative
@@ -207,6 +256,9 @@ public class TestLic {
         assertThrows(IllegalArgumentException.class, () -> lic.lic2());
     }
 
+    /**
+     * Tests the lic3 method with input variables that should return true.
+     */
     @Test
     void testLic3_true() {
         // Case 1, we know to be true according to input variables
@@ -220,6 +272,9 @@ public class TestLic {
         assertTrue(lic.lic3());
     }
 
+    /**
+     * Tests the lic3 method with input variables that should return false.
+     */
     @Test
     void testLic3_false() {
         // Case 2, we know to be false according to input variables
@@ -233,6 +288,9 @@ public class TestLic {
         assertFalse(lic.lic3());
     }
 
+    /**
+     * Tests the lic3 method with input variables that should cause an exception.
+     */
     @Test
     void testLic3_illegalArg() {
         // Case 3, we know to throw exception since the area is negative
@@ -246,6 +304,9 @@ public class TestLic {
         assertThrows(IllegalArgumentException.class, () -> lic.lic3());
     }
 
+    /**
+     * Tests the lic4 method with input variables that should return true.
+     */
     @Test
     void testLic4_true() {
         // Case 1, we know to be true according to input variables
@@ -261,6 +322,9 @@ public class TestLic {
         assertTrue(lic.lic4());
     }
 
+    /**
+     * Tests the lic4 method with input variables that should return false.
+     */
     @Test
     void testLic4_false() {
         // Case 2, we know to be false according to input variables
@@ -276,6 +340,10 @@ public class TestLic {
         assertFalse(lic.lic4());
     }
 
+    /**
+     * Tests the lic4 method with input variables that handle a corner case,
+     * expecting false.
+     */
     @Test
     void testLic4_boundaries() {
         // Case 3, checks a special case (the bounderies), we know to be false
@@ -292,6 +360,9 @@ public class TestLic {
         assertFalse(lic.lic4());
     }
 
+    /**
+     * Tests the lic4 method with input variables that should cause an exception.
+     */
     @Test
     void testLic4_illegalArg() {
         // Case 4, we know to throw exception since the q_pts is less than 2
@@ -307,6 +378,9 @@ public class TestLic {
         assertThrows(IllegalArgumentException.class, () -> lic.lic4());
     }
 
+    /**
+     * Tests the lic5 method with input variables that should return true.
+     */
     @Test
     void testLic5_true() {
         // Case 1, we know to be true according to input variables
@@ -319,6 +393,9 @@ public class TestLic {
         assertTrue(lic.lic5());
     }
 
+    /**
+     * Tests the lic5 method with input variables that should return false.
+     */
     @Test
     void testLic5_false() {
         // Case 2, we know to be false according to input variables
@@ -331,6 +408,9 @@ public class TestLic {
         assertFalse(lic.lic5());
     }
 
+    /**
+     * Tests the lic5 method with input variables that we expect to be true.
+     */
     @Test
     void testLic5_tooFewNumpoints_false() {
         // Case 3, we know to be false since there are too few points
@@ -359,6 +439,9 @@ public class TestLic {
         assertTrue(lic.lic6());
     }
 
+    /**
+     * Tests the lic6 method with input variables that we expect to be false.
+     */
     @Test
     void testLic6_false() {
         // Case 2, we know to be false according to input variables
@@ -375,6 +458,9 @@ public class TestLic {
         assertFalse(lic.lic6());
     }
 
+    /**
+     * Tests the lic6 method with input variables that should cause an exception.
+     */
     @Test
     void testLic6_illegalArg() {
         // Case 3, we know to throw exception since the distance is negative
@@ -391,6 +477,9 @@ public class TestLic {
         assertThrows(IllegalArgumentException.class, () -> lic.lic6());
     }
 
+    /**
+     * Tests the lic7 method with input variables that should return true.
+     */
     @Test
     void testLic7_true() {
         // Case 1, we know to be true according to input variables
@@ -406,6 +495,9 @@ public class TestLic {
         assertTrue(lic.lic7());
     }
 
+    /**
+     * Tests the lic7 method with input variables that should return false.
+     */
     @Test
     void testLic7_false() {
         // Case 2, we know to be false according to input variables
@@ -421,6 +513,9 @@ public class TestLic {
         assertFalse(lic.lic7());
     }
 
+    /**
+     * Tests the lic7 method with input variables that should cause an exception.
+     */
     @Test
     void testLic7_illegalArg() {
         // Case 3, we know to throw exception since k_pts is greater than NUMPOINTS - 2
@@ -436,6 +531,9 @@ public class TestLic {
         assertThrows(IllegalArgumentException.class, () -> lic.lic7());
     }
 
+    /**
+     * Tests the lic8 method with input variables that should return true.
+     */
     @Test
     void testLic8_true() {
         // Case 1, we know to be true according to input variables
@@ -452,6 +550,10 @@ public class TestLic {
         assertTrue(lic.lic8());
     }
 
+    /**
+     * Tests the lic8 method with input variables that should return false (the
+     * points are on a line).
+     */
     @Test
     void testLic8_onLine_false() {
         // Case 2, we know to be false according to input variables (the points are on a
@@ -469,6 +571,9 @@ public class TestLic {
         assertFalse(lic.lic8());
     }
 
+    /**
+     * Tests the lic8 method with input variables that should return false.
+     */
     @Test
     void testLic8_false() {
         // Case 3, we know to be false according to input variables
@@ -485,6 +590,9 @@ public class TestLic {
         assertFalse(lic.lic8());
     }
 
+    /**
+     * Tests the lic8 method with input variables that should cause an exception.
+     */
     @Test
     void testLic8_illegalArg() {
         // Case 4, we know to throw exception since the sum of a_pts and b_pts is
@@ -502,6 +610,9 @@ public class TestLic {
         assertThrows(IllegalArgumentException.class, () -> lic.lic8());
     }
 
+    /**
+     * Tests the lic9 method with input variables that should return true.
+     */
     @Test
     void testLic9_less_than_PI_true() {
         // Case 1, we know to be true according to input variables
@@ -519,6 +630,9 @@ public class TestLic {
         assertTrue(lic.lic9());
     }
 
+    /**
+     * Tests the lic9 method with input variables that should return true.
+     */
     @Test
     void testLic9_greater_than_PI_true() {
         // Case 2, we know to be true according to input variables
@@ -536,6 +650,9 @@ public class TestLic {
         assertTrue(lic.lic9());
     }
 
+    /**
+     * Tests the lic9 method with input variables that should return false.
+     */
     @Test
     void testLic9_false() {
         // Case 3, we know to be false according to input variables
@@ -554,6 +671,9 @@ public class TestLic {
         assertFalse(lic.lic9());
     }
 
+    /**
+     * Tests the lic9 method with input variables that should cause an exception.
+     */
     @Test
     void testLic9_illegalArg() {
         // Case 4, we know to throw exception since the sum of c_pts and d_pts is
@@ -572,6 +692,9 @@ public class TestLic {
         assertThrows(IllegalArgumentException.class, () -> lic.lic9());
     }
 
+    /**
+     * Tests the lic10 method with input variables that should return true.
+     */
     @Test
     void testLic10_true() {
         // Case 1, we know to be true according to input variables
@@ -588,6 +711,9 @@ public class TestLic {
         assertTrue(lic.lic10());
     }
 
+    /**
+     * Tests the lic10 method with input variables that should return false.
+     */
     @Test
     void testLic10_false_too_large_AREA1() {
         // Case 2, we know to be false according to input variables
@@ -604,6 +730,9 @@ public class TestLic {
         assertFalse(lic.lic10());
     }
 
+    /**
+     * Tests the lic10 method with input variables that should return false.
+     */
     @Test
     void testLic10_false_to_few_numpoints_compared_to_E_F_PTS() {
         // Case 3, we know to throw exception since the number of points is less than
@@ -620,6 +749,9 @@ public class TestLic {
         assertThrows(IllegalArgumentException.class, () -> lic.lic10());
     }
 
+    /**
+     * Tests the lic10 method with input variables that should cause an exception.
+     */
     @Test
     void testLic10_illegalArg() {
         // Case 4, we know to throw exception since the area is negative
@@ -636,6 +768,9 @@ public class TestLic {
         assertThrows(IllegalArgumentException.class, () -> lic.lic10());
     }
 
+    /**
+     * Tests the lic11 method with input variables that should return false.
+     */
     @Test
     void testLic11_false() {
         // Case 1, we know to be false according to input variables
@@ -649,6 +784,9 @@ public class TestLic {
         assertFalse(lic.lic11());
     }
 
+    /**
+     * Tests the lic11 method with input variables that should return true.
+     */
     @Test
     void testLic11_true() {
         // Case 2, we know to be true according to input variables
@@ -662,6 +800,9 @@ public class TestLic {
         assertTrue(lic.lic11());
     }
 
+    /**
+     * Tests the lic11 method with input variables that should cause an exception.
+     */
     @Test
     void testLic11_illegalArg() {
         // Case 3, we know to throw exception since the g_pts is greater than
@@ -676,6 +817,9 @@ public class TestLic {
         assertThrows(IllegalArgumentException.class, () -> lic.lic11());
     }
 
+    /**
+     * Tests the lic12 method with input variables that should return true.
+     */
     @Test
     void testLic12_true() {
         // Case 1, we know to be true according to input variables
@@ -692,6 +836,9 @@ public class TestLic {
         assertTrue(lic.lic12());
     }
 
+    /**
+     * Tests the lic12 method with input variables that should return false.
+     */
     @Test
     void testLic12_false() {
         // Case 2, we know to be false according to input variables
@@ -708,6 +855,9 @@ public class TestLic {
         assertFalse(lic.lic12());
     }
 
+    /**
+     * Tests the lic12 method with input variables that should cause an exception.
+     */
     @Test
     void testLic12_illegalArg() {
         // Case 3, we know to throw exception since length1 is negative
@@ -724,6 +874,9 @@ public class TestLic {
         assertThrows(IllegalArgumentException.class, () -> lic.lic12());
     }
 
+    /**
+     * Tests the lic13 method with input variables that should return true.
+     */
     @Test
     void testLic13_true() {
         // Case 1, we know to be true according to input variables
@@ -741,6 +894,10 @@ public class TestLic {
         assertTrue(lic.lic13());
     }
 
+    /**
+     * Tests the lic13 method with input variables that should return false (the
+     * points are on a line).
+     */
     @Test
     void testLic13_onLine_false() {
         // Case 2, we know to be false according to input variables (the points are on a
@@ -759,6 +916,9 @@ public class TestLic {
         assertFalse(lic.lic13());
     }
 
+    /**
+     * Tests the lic13 method with input variables that should return false.
+     */
     @Test
     void testLic13_false() {
         // Case 3, we know to be false according to input variables
@@ -776,6 +936,9 @@ public class TestLic {
         assertFalse(lic.lic13());
     }
 
+    /**
+     * Tests the lic13 method with input variables that should cause an exception.
+     */
     @Test
     void testLic13_illegalArg() {
         // Case 4, we know to throw expetion since the sum of a_pts and b_pts is greater
@@ -794,6 +957,9 @@ public class TestLic {
         assertThrows(IllegalArgumentException.class, () -> lic.lic13());
     }
 
+    /**
+     * Tests the lic14 method with input variables that should return true.
+     */
     @Test
     void testLic14_true() {
         // Case 1, we know to be true according to input variables
@@ -811,6 +977,9 @@ public class TestLic {
         assertTrue(lic.lic14());
     }
 
+    /**
+     * Tests the lic14 method with input variables that should return false.
+     */
     @Test
     void testLic14_false() {
         // Case 2, we know to be false according to input variables
@@ -828,6 +997,9 @@ public class TestLic {
         assertFalse(lic.lic14());
     }
 
+    /**
+     * Tests the lic14 method with input variables that should cause an exception.
+     */
     @Test
     void testLic14_illegalArg() {
         // Case 3, we know to throw exception since area1 is negative
@@ -1061,6 +1233,9 @@ public class TestLic {
         });
     }
 
+    /**
+     * Tests that the FUV method returns expected true value.
+     */
     @Test
     void testFUV_true() {
         // test case 1 that should be true, tests only lic0-lic3
@@ -1112,6 +1287,9 @@ public class TestLic {
         assertArrayEquals(answer, lic.FUV());
     }
 
+    /**
+     * Tests that the FUV method returns expected false value.
+     */
     @Test
     void testFUV_falseArea() {
         // Test case 2, should be true, but lic0 and lic2 are false.

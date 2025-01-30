@@ -38,36 +38,36 @@ public class LaunchInterceptor {
     public static void main(String[] args) {
         System.out.println("Launch interceptor program!");
         String[][] LCM = {
-            { "ANDD", "ANDD", "ORR", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                    "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-            { "ANDD", "ANDD", "ORR", "ORR", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                    "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-            { "ORR", "ORR", "ANDD", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                    "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-            { "ANDD", "ORR", "ANDD", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                    "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-            { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                    "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-            { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                    "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-            { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                    "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-            { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                    "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-            { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                    "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-            { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                    "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-            { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                    "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-            { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                    "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-            { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                    "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-            { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                    "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
-            { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
-                    "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" }
+                { "ANDD", "ANDD", "ORR", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "ANDD", "ANDD", "ORR", "ORR", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "ORR", "ORR", "ANDD", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "ANDD", "ORR", "ANDD", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
+                { "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
+                        "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" }
         };
         boolean[] PUV = { true, true, true, true, false, false, false, false, false, false, false, false, false, false,
                 false };
@@ -82,14 +82,22 @@ public class LaunchInterceptor {
         LaunchInterceptor lic = new LaunchInterceptor(numpoints, points, parameters, LCM, PUV);
         boolean decision = lic.decide();
         System.out.println("Calculating...");
-        if (decision){
-            System.out.println("=====Ready to launch the interceptor based upon the input radar tracking inforamtion!=====");
+        if (decision) {
+            System.out.println(
+                    "=====Ready to launch the interceptor based upon the input radar tracking inforamtion!=====");
         } else {
             System.out.println("=====ABORT: not ready to launch!=====");
         }
-        
+
     }
 
+    /**
+     * There exists at least one set of two consecutive data points that are a
+     * distance greater than the length, LENGTH1, apart
+     * 
+     * @return true if the condition is met, false otherwise.
+     * @throws IllegalArgumentException if LENGTH1 is less than 0.
+     */
     public boolean lic0() {
         if (this.PARAMETERS.LENGTH1 < 0) {
             throw new IllegalArgumentException("Length1 must be greater than or equal to 0");
@@ -107,9 +115,14 @@ public class LaunchInterceptor {
         return state;
     }
 
+    /**
+     * There exists at least one set of three consecutive data points that cannot
+     * all be contained within or on a circle of radius RADIUS1.
+     * 
+     * @return true if the condition is met, false otherwise.
+     * @throws IllegalArgumentException if RADIUS1 is less than 0.
+     */
     public boolean lic1() {
-        // There exists at least one set of three consecutive data points that cannot
-        // all be contained within or on a circle of radius RADIUS1.
         if (this.PARAMETERS.RADIUS1 < 0) {
             throw new IllegalArgumentException("Radius1 must be greater than or equal to 0");
         }
@@ -148,6 +161,16 @@ public class LaunchInterceptor {
         return state;
     }
 
+    /**
+     * There exists at least one set of three consecutive data points which form an
+     * angle such that: angle < (PI − EPSILON) or angle > (PI + EPSILON) The second
+     * of the three consecutive points is always the vertex of the angle. If either
+     * the first point or the last point (or both) coincides with the vertex, the
+     * angle is undefined and the LIC is not satisfied by those three points
+     * 
+     * @return true if the condition is met, false otherwise.
+     * @throws IllegalArgumentException if EPSILON is not in the range [0, PI).
+     */
     public boolean lic2() {
         if (0 > this.PARAMETERS.EPSILON || this.PARAMETERS.EPSILON >= Math.PI) {
             throw new IllegalArgumentException("Epsilon must be greater than or equal to 0 and smaller than PI");
@@ -181,9 +204,14 @@ public class LaunchInterceptor {
         return state;
     }
 
+    /**
+     * There exists at least one set of three consecutive data points that are the
+     * vertices of a triangle with area greater than AREA1.
+     * 
+     * @return true if the condition is met, false otherwise.
+     * @throws IllegalArgumentException if AREA1 is less than 0.
+     */
     public boolean lic3() {
-        // There exists at least one set of three consecutive data points that are the
-        // vertices of a triangle with area greater than AREA1
         if (this.PARAMETERS.AREA1 < 0) {
             throw new IllegalArgumentException("Area1 must be greater than or equal to 0");
         }
@@ -203,14 +231,19 @@ public class LaunchInterceptor {
         return state;
     }
 
+    /**
+     * There exists at least one set of Q_PTS consecutive data points that lie in
+     * more than QUADS quadrants. Where there is ambiguity as to which quadrant
+     * contains a given point, priority of decision will be by quadrant number,
+     * i.e., I, II, III, IV. For example, the data point (0,0) is in quadrant I, the
+     * point (-l,0) is in quadrant II, the point (0,-l) is in quadrant III, the
+     * point (0,1) is in quadrant I and the point (1,0) is in quadrant I.
+     * 
+     * @return true if the condition is met, false otherwise.
+     * @throws IllegalArgumentException if Q_PTS is not in the range [2, NUMPOINTS]
+     *                                  or QUADS is not in the range [1, 3].
+     */
     public boolean lic4() {
-        // There exists at least one set of Q_PTS consecutive data points that lie in
-        // more than QUADS quadrants. Where there is ambiguity as to which quadrant
-        // contains a given point, priority of decision will be by quadrant number,
-        // i.e., I, II, III, IV. For example, the data point (0,0) is in quadrant I, the
-        // point (-1,0) is in quadrant II, the point (0,-1) is in quadrant III, the
-        // point (0,1) is in quadrant I and the point (1,0) is in quadrant I. (2 ≤ Q_PTS
-        // ≤ NUMPOINTS), (1 ≤ QUADS ≤ 3)
         if (this.PARAMETERS.Q_PTS < 2 || this.PARAMETERS.Q_PTS > this.NUMPOINTS || this.PARAMETERS.QUADS < 1
                 || this.PARAMETERS.QUADS > 3) {
             throw new IllegalArgumentException(
@@ -266,8 +299,14 @@ public class LaunchInterceptor {
         return state;
     }
 
-    // returns true if xj-xi<0 for two consecutive points (xi,yi), (xj,yj)
+    /**
+     * There exists at least one set of two consecutive data points, (X[i],Y[i]) and
+     * (X[j],Y[j]), such that X[j] - X[i] < 0. (where i = j-1)
+     * 
+     * @return true if the condition is met, false otherwise.
+     */
     public boolean lic5() {
+        // returns true if xj-xi<0 for two consecutive points (xi,yi), (xj,yj)
         boolean state = false;
         for (int i = 1; i < this.NUMPOINTS; i++) {
             double[] point1 = this.POINTS[i - 1];
@@ -279,6 +318,18 @@ public class LaunchInterceptor {
         return state;
     }
 
+    /**
+     * There exists at least one set of N_PTS consecutive data points such that at
+     * least one of the points lies a distance greater than DIST from the line
+     * joining the first and last of these N_PTS points. If the first and last
+     * points of these N_PTS are identical, then the calculated distance to compare
+     * with DIST will be the distance from the coincident point to all other points
+     * of the N_PTS consecutive points. The condition is not met when NUMPOINTS < 3.
+     * 
+     * @return true if the condition is met, false otherwise.
+     * @throws IllegalArgumentException if N_PTS is not in the range [3, NUMPOINTS]
+     *                                  or DIST is less than 0.
+     */
     public boolean lic6() {
         if (this.PARAMETERS.N_PTS < 3 || this.PARAMETERS.N_PTS > this.NUMPOINTS || this.PARAMETERS.DIST < 0) {
             throw new IllegalArgumentException(
@@ -316,12 +367,16 @@ public class LaunchInterceptor {
         return false;
     }
 
+    /**
+     * There exists at least one set of two data points separated by exactly K_PTS
+     * consecutive intervening points that are a distance greater than the length,
+     * LENGTH1, apart. The condition is not met when NUMPOINTS < 3.
+     * 
+     * @return true if the condition is met, false otherwise.
+     * @throws IllegalArgumentException if K_PTS is not in the range [1, NUMPOINTS -
+     *                                  2].
+     */
     public boolean lic7() {
-        // There exists at least one set of two data points separated by exactly K PTS
-        // consecutive intervening points that are a distance greater than the length,
-        // LENGTH1, apart. The condition
-        // is not met when NUMPOINTS < 3.
-        // 1 ≤ K PTS ≤ (NUMPOINTS−2)
         if (this.PARAMETERS.K_PTS < 1 || this.PARAMETERS.K_PTS > this.NUMPOINTS - 2) {
             throw new IllegalArgumentException("K_PTS must be between 1 and NUMPOINTS - 2");
         }
@@ -341,11 +396,18 @@ public class LaunchInterceptor {
         return state;
     }
 
+    /**
+     * There exists at least one set of three data points separated by exactly A_PTS
+     * and B_PTS consecutive intervening points, respectively, that cannot be
+     * contained within or on a circle of radius RADIUS1. The condition is not met
+     * when NUMPOINTS < 5.
+     * 
+     * @return true if the condition is met, false otherwise.
+     * @throws IllegalArgumentException if A_PTS or B_PTS is less than 1, or if
+     *                                  their sum is greater than NUMPOINTS - 3, or
+     *                                  if RADIUS1 is less than 0.
+     */
     public boolean lic8() {
-        // There exists at least one set of three data points separated by exactly A_PTS
-        // and B_PTS consecutive intervening points, respectively, that cannot be
-        // contained within or on a circle of radius RADIUS1. The condition is not met
-        // when NUMPOINTS < 5.
         if (this.PARAMETERS.A_PTS < 1 || this.PARAMETERS.B_PTS < 1
                 || this.PARAMETERS.A_PTS + this.PARAMETERS.B_PTS > this.NUMPOINTS - 3 || this.PARAMETERS.RADIUS1 < 0) {
             throw new IllegalArgumentException(
@@ -397,6 +459,20 @@ public class LaunchInterceptor {
         return false;
     }
 
+    /**
+     * There exists at least one set of three data points separated by exactly C_PTS
+     * and D_PTS consecutive intervening points, respectively, that form an angle
+     * such that: angle < (PI − EPSILON) or angle > (PI + EPSILON) The second point
+     * of the set of three points is always the vertex of the angle. If either the
+     * first point or the last point (or both) coincide with the vertex, the angle
+     * is undefined and the LIC is not satisfied by those three points. When
+     * NUMPOINTS < 5, the condition is not met.
+     * 
+     * @return true if the condition is met, false otherwise.
+     * @throws IllegalArgumentException if C_PTS or D_PTS is less than 1, or if
+     *                                  their sum is greater than NUMPOINTS - 3, or
+     *                                  if EPSILON is less than 0.
+     */
     public boolean lic9() {
         if (this.PARAMETERS.C_PTS < 1 || this.PARAMETERS.D_PTS < 1
                 || this.PARAMETERS.C_PTS + this.PARAMETERS.D_PTS > this.NUMPOINTS - 3 || this.PARAMETERS.EPSILON < 0) {
@@ -439,12 +515,18 @@ public class LaunchInterceptor {
         return state;
     }
 
+    /**
+     * There exists at least one set of three data points separated by exactly E PTS
+     * and F PTS con- secutive intervening points, respectively, that are the
+     * vertices of a triangle with area greater than AREA1. The condition is not met
+     * when NUMPOINTS < 5.
+     * 
+     * @return true if the condition is met, false otherwise.
+     * @throws IllegalArgumentException if E_PTS or F_PTS is less than 1, or if
+     *                                  their sum is greater than NUMPOINTS - 3, or
+     *                                  if AREA1 is less than 0.
+     */
     public boolean lic10() {
-        // There exists at least one set of three data points separated by exactly E PTS
-        // and F PTS consecutive intervening points, respectively, that are the vertices
-        // of a
-        // triangle with area greater than AREA1. The condition is not met when
-        // NUMPOINTS < 5.
         if (this.PARAMETERS.E_PTS < 1 || this.PARAMETERS.F_PTS < 1
                 || this.PARAMETERS.E_PTS + this.PARAMETERS.F_PTS > this.NUMPOINTS - 3 || this.PARAMETERS.AREA1 < 0) {
             throw new IllegalArgumentException(
@@ -472,9 +554,19 @@ public class LaunchInterceptor {
         return state;
     }
 
-    // Check if there exists two points with G_PTS number of points inbetween such
-    // that xi>xj and i<j
+    /**
+     * There exists at least one set of two data points, (X[i],Y[i]) and
+     * (X[j],Y[j]), separated by exactly G_PTS consecutive intervening points, such
+     * that X[j] - X[i] < 0. (where i < j ) The condition is not met when NUMPOINTS
+     * < 3.
+     * 
+     * @return true if the condition is met, false otherwise.
+     * @throws IllegalArgumentException if G_PTS is not in the range [1, NUMPOINTS -
+     *                                  2].
+     */
     public boolean lic11() {
+        // Check if there exists two points with G_PTS number of points inbetween such
+        // that xi>xj and i<j
         if (this.PARAMETERS.G_PTS < 1 || this.PARAMETERS.G_PTS > this.NUMPOINTS - 2) {
             throw new IllegalArgumentException(
                     "G_PTS must be greater than or equal to 1 and less than or equal to NUMPOINTS - 2");
@@ -498,6 +590,19 @@ public class LaunchInterceptor {
         return state;
     }
 
+    /**
+     * There exists at least one set of two data points, separated by exactly K_PTS
+     * consecutiveintervening points, which are a distance greater than the length,
+     * LENGTH1, apart. In addi-tion, there exists at least one set of two data
+     * points (which can be the same or different fromthe two data points just
+     * mentioned), separated by exactly K_PTS consecutive interveningpoints, that
+     * are a distance less than the length, LENGTH2, apart. Both parts must be
+     * truefor the LIC to be true. The condition is not met when NUMPOINTS < 3.
+     * 
+     * @return true if the condition is met, false otherwise.
+     * @throws IllegalArgumentException if LENGTH1 or LENGTH2 is less than 0, or if
+     *                                  K_PTS is greater than NUMPOINTS - 2.
+     */
     public boolean lic12() {
         if (this.PARAMETERS.LENGTH2 < 0 || this.PARAMETERS.LENGTH1 < 0 || this.PARAMETERS.K_PTS > this.NUMPOINTS - 2) {
             throw new IllegalArgumentException(
@@ -530,6 +635,21 @@ public class LaunchInterceptor {
         return false;
     }
 
+    /**
+     * There exists at least one set of three data points, separated by exactly
+     * A_PTS and B_PTS consecutive intervening points, respectively, that cannot be
+     * contained within or on a circle ofradius RADIUS1. In addition, there exists
+     * at least one set of three data points (which can bethe same or different from
+     * the three data points just mentioned) separated by exactly A_PTS and B_PTS
+     * consecutive intervening points, respectively, that can be contained in or on
+     * acircle of radius RADIUS2. Both parts must be true for the LIC to be true.
+     * The condition isnot met when NUMPOINTS < 5.
+     * 
+     * @return true if the condition is met, false otherwise.
+     * @throws IllegalArgumentException if RADIUS1 or RADIUS2 is less than 0, or if
+     *                                  A_PTS or B_PTS is less than 1, or if their
+     *                                  sum is greater than NUMPOINTS - 3.
+     */
     public boolean lic13() {
         if (this.PARAMETERS.RADIUS1 < 0 || this.PARAMETERS.RADIUS2 < 0 || this.PARAMETERS.A_PTS < 1
                 || this.PARAMETERS.B_PTS < 1
@@ -587,6 +707,21 @@ public class LaunchInterceptor {
         return false;
     }
 
+    /**
+     * There exists at least one set of three data points, separated by exactly
+     * E_PTS and F_PTS con-secutive intervening points, respectively, that are the
+     * vertices of a triangle with area greaterthan AREA1. In addition, there exist
+     * three data points (which can be the same or differentfrom the three data
+     * points just mentioned) separated by exactly E_PTS and F_PTS consecutive
+     * intervening points, respectively, that are the vertices of a triangle with
+     * area less thanAREA2. Both parts must be true for the LIC to be true. The
+     * condition is not met when NUMPOINTS < 5
+     * 
+     * @return true if the condition is met, false otherwise.
+     * @throws IllegalArgumentException if AREA1 or AREA2 is less than 0, or if
+     *                                  E_PTS or F_PTS is less than 1, or if their
+     *                                  sum is greater than NUMPOINTS - 3.
+     */
     public boolean lic14() {
         if (this.PARAMETERS.AREA1 < 0 || this.PARAMETERS.AREA2 < 0 || this.PARAMETERS.E_PTS < 1
                 || this.PARAMETERS.F_PTS < 1
@@ -623,12 +758,23 @@ public class LaunchInterceptor {
         return false;
     }
 
+    /**
+     * Generates the Conditions Met Vector (CMV) which is an array of boolean values
+     * indicating whether each LIC condition is met.
+     * 
+     * @return a boolean array representing the CMV.
+     */
     public boolean[] CMV() {
         boolean[] cmv = { lic0(), lic1(), lic2(), lic3(), lic4(), lic5(), lic6(), lic7(), lic8(), lic9(), lic10(),
                 lic11(), lic12(), lic13(), lic14() };
         return cmv;
     }
 
+    /**
+     * Generates the Preliminary Unlocking Matrix (PUM) based on the CMV and LCM.
+     * 
+     * @return a 2D boolean array representing the PUM.
+     */
     public boolean[][] PUM() {
         boolean[] cmv = this.CMV();
         boolean[][] PUM = new boolean[15][15];
@@ -659,8 +805,15 @@ public class LaunchInterceptor {
         return PUM;
     }
 
-    // FUV[i] is true if PUV[i] is false or if all elements in PUM row i are true
+    /**
+     * Generates the Final Unlocking Vector (FUV) which is an array of boolean
+     * values indicating whether each condition in the PUM is met based on the PUV.
+     * 
+     * @return a boolean array representing the FUV.
+     */
     public boolean[] FUV() {
+        // FUV[i] is true if PUV[i] is false or if all elements in PUM row i are true
+
         boolean[][] PUM = PUM();
         boolean[] FUV = new boolean[15];
         for (int i = 0; i < 15; i++) {
@@ -685,12 +838,11 @@ public class LaunchInterceptor {
     public boolean decide() {
         boolean[] FUV = FUV();
         boolean launch = true;
-        for (int i = 0; i < 15; i++){
-            if (FUV[i] == false){
+        for (int i = 0; i < 15; i++) {
+            if (FUV[i] == false) {
                 launch = false;
             }
         }
         return launch;
     }
-
 }
