@@ -1416,18 +1416,9 @@ public class TestLic {
         assertTrue(lic.decide());
     }
 
-<<<<<<< HEAD
-    /**
-     * Tests that the FUV method returns expected false value.
-     */
-    @Test
-    void testFUV_falsePoint() {
-        // case 3 that is true but several elements of the FUV will be false
-=======
     @Test 
     void testDecide_false_case2(){
         // test case 2 that should be false
->>>>>>> main
         String[][] LCM = {
                 { "ANDD", "ANDD", "ORR", "ANDD", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED",
                         "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED", "NOTUSED" },
