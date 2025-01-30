@@ -1031,25 +1031,29 @@ public class TestLic {
     }
 
     /**
-     * Tests the PUM method with input variables that should return true.
-     * Case 1
+     * Tests the CMV method with input variables that should return false.
+     * Case 2
      */
     @Test
     void testCMV_error_invalid_input() {
         int numpoints = 5;
         double[][] points = { { 0, 0 }, { 0, -1 }, { 1, 1 }, { 1, 0 }, { 0.5, 0 } };
-            double length1 = 0.5;
+        double length1 = 0.5;
         double radius1 = 0.5;
         double area1 = 0.5;
         int epsilon = 0;
         ParameterRecord parameters = new ParameterRecord(length1, radius1, epsilon, area1, 2, 2, 0, 0, 2, 1, 1, 1, 1, 1,
-                   1, 1, 0, 0, 0);
+                1, 1, 0, 0, 0);
         String[][] lcm = new String[15][15];
         boolean[] puv = new boolean[15];
         LaunchInterceptor cmv = new LaunchInterceptor(numpoints, points, parameters, lcm, puv);
         assertThrows(IllegalArgumentException.class, () -> cmv.CMV());
     }
 
+    /**
+     * Tests the CMV method with input variables that should return false.
+     * Case 3
+     */
     @Test
     void testCMV_1_false() {
         int numpoints = 5;
@@ -1059,13 +1063,17 @@ public class TestLic {
         double area1 = 0.5;
         int epsilon = 0;
         ParameterRecord parameters = new ParameterRecord(length1, radius1, epsilon, area1, 2, 2, 4, 0, 2, 1, 1, 1, 1, 1,
-                   1, 1, 0, 0, 0);
+                1, 1, 0, 0, 0);
         String[][] lcm = new String[15][15];
         boolean[] puv = new boolean[15];
         LaunchInterceptor cmv = new LaunchInterceptor(numpoints, points, parameters, lcm, puv);
         assertFalse(cmv.CMV()[0]);
     }
 
+    /**
+     * Tests the PUM method with input variables that should return true.
+     * Case 1
+     */
     @Test
     void testPUM_correct() {
         int numpoints = 5;
