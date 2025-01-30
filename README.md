@@ -15,7 +15,7 @@ This project requires:
 
 Clone the repository locally using `git clone`.
 
-You can then use Maven to compile, test and package the project. The Maven project is located in the `lic` subfolder, so navigate to that folder before running any Maven commands (`cd lic`).
+You can then use Maven to compile, test and package the project. The Maven project is located in the `decide` subfolder, so navigate to that folder before running any Maven commands (`cd decide`).
 
 To compile the project, run:
 
